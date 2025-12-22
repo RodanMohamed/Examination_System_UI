@@ -1,0 +1,128 @@
+body{
+    margin:0;
+}
+
+/* HEADER */
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow:4px 4px 4px rgb(94, 2, 33);
+}
+
+#title{
+    font-size: 22px;
+    font-weight: bold;
+    color: rgb(94, 2, 33);
+    padding-left: 30px;
+}
+
+#list{
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding-right: 20px;
+    flex-wrap: wrap;
+}
+#burger{
+    display:none; /* Hidden on desktop */
+    font-size: 30px;
+    cursor: pointer;
+    padding-right: 20px;
+}
+.icon{
+    width: 30px;
+    height: 30px;
+}
+
+/* HERO */
+#firs_tsection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    font-weight: bold;
+}
+
+#contain{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#btn{
+    background-color: rgb(94, 2, 33);
+    color: rgb(255, 255, 255);
+    padding: 10px 25px;
+    border-radius: 5px;
+}
+#startExamError{
+    color:red; 
+    margin-top:10px;
+}
+
+#divim1{
+    width: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#img1{
+    width: 100%;
+}
+
+/* FEATURES */
+#divv{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+#second_section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.div4{
+    background-color: rgb(219, 227, 235);
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 250px;
+    height: 110px;
+    margin: 10px;
+    padding: 10px;
+    box-shadow:4px 4px 4px rgb(210, 165, 165);
+}
+
+/* TEXT */
+p{
+    color: rgb(94, 2, 33);
+    margin: 5px;
+}
+#logoutBtn
+{
+    background-color: rgb(219, 227, 235);
+    color: rgb(94, 2, 33);
+    text-align: center;
+}
+
+/* FOOTER */
+#footer{
+    background-color: rgb(94, 2, 33);
+    display: flex;
+    justify-content: center;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    
+}
+#fp{
+    color:rgb(219, 227, 235); ;
+}

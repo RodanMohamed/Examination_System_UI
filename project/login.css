@@ -5,7 +5,7 @@
     margin: auto;
     margin-top: 100px;
     border-radius: 10px;
-    box-shadow: 0 7px 40px rgba(25, 23, 22, 0.1);
+    box-shadow: 0 7px 40px rgb(94, 2, 33);
     padding: 20px;
     text-align: center;
     /* align-items: center; */
@@ -16,6 +16,7 @@
 h1{
     font-family: Arial, sans-serif; 
     margin-left: 0px;
+    color: rgb(94, 2, 33);
 }
 #para{
     font-family: Arial, sans-serif; 
@@ -29,9 +30,16 @@ h1{
     /* left: 150px; */
     left:18%;
     top: 35%;
+    outline: none;
+    border-style:unset;
+    /* box-shadow: 1px 1px 1px rgb(90, 46, 60); */
+    border: 0.1px solid gray;
   
     /* margin-bottom: 30px; */
-    border-radius: 7px;
+    border-radius: 5px;
+}
+#emailinput:focus{
+    border: 2px solid rgb(94, 2, 33);
 }
 
 #passinput {
@@ -41,8 +49,13 @@ h1{
     position: absolute;
     left: 18%;
     top: 50%;
-    border-radius: 7px;
-    border-style:ridge;
+    outline: none;
+    border-style:unset;
+    border-radius: 5px;
+    border: 0.1px solid gray;
+}
+#passinput:focus{
+    border: 2px solid rgb(94, 2, 33);
 }
 #lblmail{
     font-family: Arial, sans-serif; 
@@ -51,6 +64,7 @@ h1{
     position: absolute;
     left: 18%;
     top: 30%;
+    color: rgb(94, 2, 33);
 }
 #lblpass{
     font-family: Arial, sans-serif; 
@@ -59,6 +73,7 @@ h1{
     position: absolute;
     left: 18%;
     top: 45%;
+    color: rgb(94, 2, 33);
 }
 /* #loginError{
     margin-left: 0px;
@@ -66,9 +81,10 @@ h1{
 #loginbtn{
     width: 255px;
     height: 35px;
-    background-color: rgb(0, 114, 17);
+    background-color:  rgb(94, 2, 33);
     color: white;
     border-radius: 7px;
+    border: none;
     font-size: 18px;
     font-weight: bold;
     /* margin-top: 40px;
@@ -113,4 +129,9 @@ h1{
     top: 80%;
     left: 25%;
     color: rgb(110, 109, 109);
+    
+}
+#linkreg{
+    color: rgb(94, 2, 33);
+  
 }

@@ -13,11 +13,11 @@ var isValid = true;
 
 
 
-document.addEventListener("click", function() {
+ document.addEventListener("click", function() {
     emailError.textContent = "";
-    passError.textContent = "";
+   passError.textContent = "";
      loginError.textContent = "";
-});
+ });
 
 function validationlogin(e) {
     isValid = true;
@@ -50,7 +50,12 @@ function validationlogin(e) {
     }
 
 }
+function plur(){
+    emailError.textContent = "";
+    passError.textContent = "";
+    //  loginError.textContent = "";
 
+}
 function login() {
     var email = emailinput.value.trim();
     var password = passinput.value.trim();
@@ -70,8 +75,9 @@ function login() {
     }
 
     if (userFound) {
+         localStorage.setItem("currentUser", email);
         return true; 
-    } else {
+    } else if (!userFound){
         loginError.textContent = "Invalid data – Please register first";
         return false;
     }
