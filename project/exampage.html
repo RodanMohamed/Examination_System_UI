@@ -7,8 +7,55 @@
     <link rel="stylesheet" href="exampage.css">
 </head>
 <body>
-    <div>
+    <div class="container">
+
+        <div class="header item"></div>
+        <div class="question-box item">
+            <form id="questionForm q">
+            <label class="option">
+                <input type="radio" name="q1"> Stack
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1"> Queue
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1"> Linked List
+            </label>
+
+            <label class="option">
+                <input type="radio" name="q1"> Binary Tree
+            </label>
+        </form>
+        <div class="question-btn q">
+            <button class="btn">Previous</button>
+            <button class="btn primary">Next Question</button>
+        </div>
+        </div>
+
+        <div class="palette item">
+        <h4>Question Palette</h4>
+        <div class="grid-palette">
+            <button >1</button>
+            <button>2</button>
+            <button >3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button >7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>10</button>
+
+        </div>
+
+        <button class="submit">Submit Exam</button>
     </div>
+    <div class="footer item">footer</div>
+
+</div>
     
+<script src="exampage.js"></script>
 </body>
 </html>
