@@ -2,7 +2,6 @@ body{
     margin:0;
 }
 
-/* HEADER */
 #header{
     display: flex;
     justify-content: space-between;
@@ -36,7 +35,6 @@ body{
     height: 30px;
 }
 
-/* HERO */
 #firs_tsection{
     display: flex;
     justify-content: space-between;
@@ -71,7 +69,6 @@ body{
     width: 100%;
 }
 
-/* FEATURES */
 #divv{
     display: flex;
     flex-direction: column;
@@ -102,7 +99,6 @@ body{
     box-shadow:4px 4px 4px rgb(210, 165, 165);
 }
 
-/* TEXT */
 p{
     color: rgb(94, 2, 33);
     margin: 5px;
@@ -113,8 +109,6 @@ p{
     color: rgb(94, 2, 33);
     text-align: center;
 }
-
-/* FOOTER */
 #footer{
     background-color: rgb(94, 2, 33);
     display: flex;
