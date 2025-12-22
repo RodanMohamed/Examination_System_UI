@@ -1,0 +1,86 @@
+body {
+    min-height: 97vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.form-container {
+    width: 360px;
+    max-width: 92%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 7px 40px rgb(94, 2, 33);
+    background-color: rgb(219, 227, 235);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(94, 2, 33);
+}
+
+.name-group {
+    display: flex;
+    gap: 10px;
+}
+
+.name-group input {
+    width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border-radius: 5px;
+    border: 0.1px solid gray;
+    outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+input:focus {
+    border: 2px solid rgb(94, 2, 33);
+}
+
+input:focus::placeholder {
+    color: transparent;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    background-color: rgb(94, 2, 33);
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(110, 2, 39);
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: rgb(110, 109, 109);
+}
+
+.login-link a {
+    color: rgb(94, 2, 33);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

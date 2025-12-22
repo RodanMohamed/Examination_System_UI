@@ -47,12 +47,17 @@ registerButton.addEventListener("click", function (event) {
             password: password.value.trim()
         };
         var users = JSON.parse(localStorage.getItem("users")) || [];
+        var userExists = users.some(function (user) {
+            return user.email === email.value.trim();
+        });
+        if (userExists) {
+            showError("email-error", "Email is already registered.");
+            return;
+        }
         users.push(userData);
         localStorage.setItem("users", JSON.stringify(users));
-
         alert("Registration successful!");
         window.location.href = "login.html";
-
     }
 });
 
@@ -60,13 +65,25 @@ function showError(elementId, message) {
     var errorElement = document.getElementById(elementId);
     errorElement.textContent = message;
 }
+
 function clearErrors() {
     var errorElements = document.getElementsByClassName("error");
     for (var i = 0; i < errorElements.length; i++) {
         errorElements[i].textContent = "";
     }
 }
+
 function validateEmail(email) {
     var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
 }
+
+window.addEventListener("click", function (event) {
+    if (
+        event.target !== registerButton &&
+        ![firstName, lastName, email, password, confirmPassword].includes(event.target)
+    ) {
+        clearErrors();
+    }
+});
+
