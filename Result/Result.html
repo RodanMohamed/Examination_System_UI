@@ -4,33 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exam Result</title>
     <link rel="stylesheet" href="Result-style.css">
 </head>
 
 <body>
     <div id="container">
         <div id="resultMessage">
-            <h1 id="resultHeading">Congratulations!</h1>
-            <p id="resultPara">You have successfully completed the exam.</p>
-        </div>
-        <div id="name">
-            <p id="student-name">Student Name</p>
-            <h3 id="student-name">Ahmed Asharf</h3>
-        </div>
-        <div id="scoreDiv">
-            <h2 id="score">85%</h2>
-            <p id="scorePara">total Score</p>
-        </div>
-        <div id="total-score">
-            <p>17/20</p>
-            <p id="correct-answers">Correct Answers</p>
-        </div>
-        <div>
-            <button id="homeBtn" onclick="location.href='/Examination_System_UI/Home/homepage.html'">Go to Home
-                Page</button>
+            <div id="successIcon">
+                <img width="64" height="64" src="https://img.icons8.com/cute-clipart/64/ok.png" alt="ok" />
+            </div>
+            <h1>Congratulations!</h1>
+            <p>You have successfully completed the exam.</p>
         </div>
 
+        <div id="resultDetails">
+            <div id="name">
+                <p class="student-label">Student Name</p>
+                <h3 class="student-name">Ahmed Ashraf</h3>
+            </div>
+
+            <div id="scoreContainer">
+                <div class="score-box">
+                    <h2 class="score">85%</h2>
+                    <p>Total Score</p>
+                </div>
+                <div class="score-box">
+                    <h2 class="score">17/20</h2>
+                    <p>Correct Answers</p>
+                </div>
+            </div>
+
+            <div>
+                <button id="homeBtn" onclick="location.href='/Examination_System_UI/Home/homepage.html'">
+                    Go to Home Page
+                </button>
+            </div>
+
+        </div>
     </div>
 </body>
 
