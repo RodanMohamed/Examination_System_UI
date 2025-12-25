@@ -1,6 +1,6 @@
 
 document.getElementById("btn").addEventListener("click", function () {
-    var currentUser = localStorage.getItem("currentUser");
+    var currentUser = JSON.parse(localStorage.getItem("loginUser"));
     var errorPara = document.getElementById("startExamError");
 
     if (currentUser) {
