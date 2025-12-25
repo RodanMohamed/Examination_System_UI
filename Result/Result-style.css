@@ -13,7 +13,7 @@ body {
     text-align: center;
     border-radius: 15px;
     box-shadow: 0 7px 40px rgb(94, 2, 33);
-    color: white;
+    color: #dbe3eb;
     max-width: 600px;
     margin: 50px auto;
     overflow: hidden;
@@ -40,7 +40,7 @@ body {
 
 #resultDetails {
     padding-bottom: 20px;
-    background-color: #ffffff;
+    background-color: #dbe3eb;
     width: 100%;
     color: #333333;
 }
@@ -66,7 +66,7 @@ body {
 }
 
 .score-box {
-    background-color: #f8f8f8;
+    background-color: #dbe3eb;
     padding: 20px 30px;
     border-radius: 10px;
     box-shadow: 0 7px 40px rgb(94, 2, 33);

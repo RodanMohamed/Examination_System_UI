@@ -7,17 +7,17 @@ var loginError = document.getElementById("loginError");
 var isValid = true;
 
 
-    // localStorage.setItem("email", "test@gmail.com");
-    // localStorage.setItem("pass", "123456");
-    //localStorage.clear();
+// localStorage.setItem("email", "test@gmail.com");
+// localStorage.setItem("pass", "123456");
+//localStorage.clear();
 
 
 
- document.addEventListener("click", function() {
+document.addEventListener("click", function () {
     emailError.textContent = "";
-   passError.textContent = "";
-     loginError.textContent = "";
- });
+    passError.textContent = "";
+    loginError.textContent = "";
+});
 
 function validationlogin(e) {
     isValid = true;
@@ -50,7 +50,7 @@ function validationlogin(e) {
     }
 
 }
-function plur(){
+function plur() {
     emailError.textContent = "";
     passError.textContent = "";
     //  loginError.textContent = "";
@@ -67,18 +67,26 @@ function login() {
 
     var userFound = false;
 
+    var loginUserData
     for (var i = 0; i < users.length; i++) {
         if (users[i].email === email && users[i].password === password) {
             userFound = true;
+            loginUserData = {
+                firstName: users[i].firstName,
+                lastName: users[i].lastName,
+                email: users[i].email,
+                score: 0
+            };
             break;
         }
     }
 
     if (userFound) {
-         localStorage.setItem("currentUser", email);
-        return true; 
-    } else if (!userFound){
+        localStorage.setItem("loginUser", JSON.stringify(loginUserData));
+        return true;
+    } else{
         loginError.textContent = "Invalid data – Please register first";
         return false;
     }
 }
+
