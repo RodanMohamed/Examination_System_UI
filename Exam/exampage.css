@@ -113,13 +113,13 @@
     margin-bottom: 20px;
 }
 
-.grid-palette button {
+/* .grid-palette button {
     padding: 8px;
     border-radius: 6px;
     border: 1px solid gray;
     background-color: white;
     cursor: pointer;
-}
+} */
 
 .current {
     background-color: rgb(37, 99, 235);
@@ -140,12 +140,17 @@
     margin: 60px;
     padding: 12px;
     font-size: 15px;
-    background-color: rgb(22, 163, 74);
+    background-color: rgb(94, 2, 33);
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
 }
+.submit:hover{
+    background-color: rgb(34, 197, 94);
+    color: rgb(94, 2, 33);
+  
+} 
 
 .footer {
     display: grid;

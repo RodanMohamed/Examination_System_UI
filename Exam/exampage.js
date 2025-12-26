@@ -1,42 +1,15 @@
 // ---------------- Questions -----------------
 var questionObject = [
-    {
-        question: "JavaScript is primarily used for?",
-        options: ["Styling web pages", "Adding interactivity to web pages", "Database management", "Server hardware management"]
-    },
-    {
-        question: "Which symbol is used for comments in JavaScript?",
-        options: ["//", "/* */", "#", "<!-- -->"]
-    },
-    {
-        question: "Which of the following is a JavaScript data type?",
-        options: ["Number", "String", "Boolean", "All of the above"]
-    },
-    {
-        question: "Which method is used to log output to the console?",
-        options: ["print()", "console.log()", "alert()", "document.write()"]
-    },
-    {
-        question: "What keyword is used to declare a variable in ES6?",
-        options: ["var", "let", "const", "All of the above"]
-    },
-    {
-        question: "Which operator is used for strict equality comparison?",
-        options: ["==", "===", "=", "!=="]
-    },
+    { question: "JavaScript is primarily used for?", options: ["Styling web pages", "Adding interactivity to web pages", "Database management", "Server hardware management"] },
+    { question: "Which symbol is used for comments in JavaScript?", options: ["//", "/* */", "#", "<!-- -->"] },
+    { question: "Which of the following is a JavaScript data type?", options: ["Number", "String", "Boolean", "All of the above"] },
+    { question: "Which method is used to log output to the console?", options: ["print()", "console.log()", "alert()", "document.write()"] },
+    { question: "What keyword is used to declare a variable in ES6?", options: ["var", "let", "const", "All of the above"] },
+    { question: "Which operator is used for strict equality comparison?", options: ["==", "===", "=", "!=="] },
     { question: "How do you create a function in JavaScript?", options: ["function myFunc() {}", "func myFunc() {}", "def myFunc() {}", "function:myFunc()"] },
-    {
-        question: "Which event occurs when a user clicks on an HTML element?",
-        options: ["onmouseover", "onchange", "onclick", "onkeypress"]
-    },
-    {
-        question: "Which of the following is a JavaScript framework?",
-        options: ["React", "Laravel", "Django", "Ruby on Rails"]
-    },
-    {
-        question: "How do you declare an array in JavaScript?",
-        options: ["let arr = [];", "let arr = ();", "let arr = {};", "let arr = <>;"]
-    }
+    { question: "Which event occurs when a user clicks on an HTML element?", options: ["onmouseover", "onchange", "onclick", "onkeypress"] },
+    { question: "Which of the following is a JavaScript framework?", options: ["React", "Laravel", "Django", "Ruby on Rails"] },
+    { question: "How do you declare an array in JavaScript?", options: ["let arr = [];", "let arr = ();", "let arr = {};", "let arr = <>;"] }
 ];
 
 var counter = 0;
@@ -45,16 +18,68 @@ var previousButton = document.getElementById("prev");
 var markButton = document.querySelector(".mark-button");
 var gridPalette = document.querySelectorAll(".grid-palette .qbtn");
 
+var answers = new Array(questionObject.length).fill(null);
+var optionInputs = document.querySelectorAll(".option input");
+
+// ---------------- Show Question -----------------
 function showQuestion() {
     if (counter < questionObject.length) {
-        document.getElementById("question-header").innerText = questionObject[counter].question;
+        document.getElementById("question-header").innerText =
+            questionObject[counter].question;
+
         var options = document.querySelectorAll(".option .option-text");
+        optionInputs.forEach(input => input.checked = false);
+
         for (let i = 0; i < options.length; i++) {
             options[i].innerText = questionObject[counter].options[i];
         }
+
+        if (answers[counter] !== null) {
+            optionInputs[answers[counter]].checked = true;
+        }
+
+        updatePaletteStatus();
     }
 }
+
 showQuestion();
+
+// ---------------- Palette & Navigation -----------------
+function updateCurrentPalette() {
+    gridPalette.forEach((btn, index) => {
+        btn.classList.remove("bg-blue-600", "text-white");
+        if (index === counter) {
+            btn.classList.add("bg-blue-600", "text-white");
+        }
+    });
+}
+
+function updatePaletteStatus() {
+    gridPalette.forEach((btn, index) => {
+        btn.classList.remove(
+            "bg-blue-600",
+            "bg-green-400",
+            "bg-yellow-300",
+            "text-white"
+        );
+
+      
+        if (btn.dataset.marked === "true") {
+            btn.classList.add("bg-yellow-300");
+        }
+
+        
+        if (answers[index] !== null) {
+            btn.classList.add("bg-green-400");
+        }
+
+      
+        if (index === counter) {
+            btn.classList.remove("bg-green-400");
+            btn.classList.add("bg-blue-600", "text-white");
+        }
+    });
+}
 
 nextButton.addEventListener("click", function () {
     if (counter < questionObject.length - 1) {
@@ -69,7 +94,22 @@ previousButton.addEventListener("click", function () {
     }
 });
 markButton.addEventListener("click", function () {
-    gridPalette[counter].style.backgroundColor = "#ffdf20";
+    gridPalette[counter].dataset.marked = "true";
+    updatePaletteStatus();
+});
+
+gridPalette.forEach((btn, index) => {
+    btn.addEventListener("click", function () {
+        counter = index;
+        showQuestion();
+    });
+});
+
+optionInputs.forEach((input, index) => {
+    input.addEventListener("change", function () {
+        answers[counter] = index; 
+        updatePaletteStatus(); // green appears immediately
+    });
 });
 
 // ---------------- Countdown -----------------
