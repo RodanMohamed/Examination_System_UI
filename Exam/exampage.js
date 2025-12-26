@@ -1,46 +1,44 @@
-window.addEventListener("DOMContentLoaded", () => {
-
-    const minutesEl = document.getElementById("minutes");
-    const secondsEl = document.getElementById("seconds");
-
-    
-    const rangeEl = document.querySelector("input[type='range']");
-
-    const TOTAL_TIME = 30 * 60; // 30 minutes in seconds
-    let remainingTime = TOTAL_TIME;
-
-    function startCountdown() {
-        const timer = setInterval(() => {
-
-            let minutes = Math.floor(remainingTime / 60);
-            let seconds = remainingTime % 60;
-
-            minutesEl.style.setProperty("--value", minutes);
-            secondsEl.style.setProperty("--value", seconds);
-
-            let usedTime = TOTAL_TIME - remainingTime;
-            let progressPercent = Math.floor((usedTime / TOTAL_TIME) * 100);
-
-            rangeEl.value = progressPercent;
-
-
-            if (progressPercent >= 90) {
-                rangeEl.style.setProperty("--range-bg", "red");
-                rangeEl.style.setProperty("--range-thumb", "red");
-            }
-
-
-            if (remainingTime <= 0) {
-                clearInterval(timer);
-                alert("Time is up! Exam submitted.");
-                return;
-            }
-
-            remainingTime--;
-
-        }, 1000);
+var questionObject = [
+    {
+        question: "JavaScript is primarily used for?",
+        options: ["Styling web pages", "Adding interactivity to web pages", "Database management", "Server hardware management"]
+    },
+    {
+        question: "Which symbol is used for comments in JavaScript?",
+        options: ["//", "/* */", "#", "<!-- -->"]
+    },
+    {
+        question: "Which of the following is a JavaScript data type?",
+        options: ["Number", "String", "Boolean", "All of the above"]
+    },
+    {
+        question: "Which method is used to log output to the console?",
+        options: ["print()", "console.log()", "alert()", "document.write()"]
+    },
+    {
+        question: "What keyword is used to declare a variable in ES6?",
+        options: ["var", "let", "const", "All of the above"]
+    },
+    {
+        question: "Which operator is used for strict equality comparison?",
+        options: ["==", "===", "=", "!=="]
+    },
+    {
+        question: "How do you create a function in JavaScript?",
+        options: ["function myFunc() {}", "func myFunc() {}", "def myFunc() {}", "function:myFunc()"]
+    },
+    {
+        question: "Which event occurs when a user clicks on an HTML element?",
+        options: ["onmouseover", "onchange", "onclick", "onkeypress"]
+    },
+    {
+        question: "Which of the following is a JavaScript framework?",
+        options: ["React", "Laravel", "Django", "Ruby on Rails"]
+    },
+    {
+        question: "How do you declare an array in JavaScript?",
+        options: ["let arr = [];", "let arr = ();", "let arr = {};", "let arr = <>;"]
     }
-<<<<<<< HEAD
 ];
 
 var nextButton = document.getElementById("next");
@@ -77,11 +75,4 @@ previousButton.addEventListener("click", function () {
 
 markButton.addEventListener("click", function () {
     gridPalette[counter].style.backgroundColor = "#ffdf20";
-});
-
-
-=======
->>>>>>> 9ddff9a65e4f4491b9fcc583ce268c972ccfec53
-
-    startCountdown();
 });
