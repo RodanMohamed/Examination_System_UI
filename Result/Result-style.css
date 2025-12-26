@@ -13,7 +13,7 @@ body {
     text-align: center;
     border-radius: 15px;
     box-shadow: 0 7px 40px rgb(94, 2, 33);
-    color: #dbe3eb;
+    color: white;
     max-width: 600px;
     margin: 50px auto;
     overflow: hidden;
@@ -42,7 +42,7 @@ body {
     padding-bottom: 20px;
     background-color: #dbe3eb;
     width: 100%;
-    color: #333333;
+    color: black;
 }
 
 .student-label {
