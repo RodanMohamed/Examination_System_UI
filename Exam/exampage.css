@@ -1,79 +1,85 @@
-
-*{
+* {
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 
-#question-box{
-    background-color:rgb(219, 227, 235);
-    box-shadow: 0 3px 10px rgb(94, 2, 33);;
+#question-box {
+    background-color: rgb(219, 227, 235);
+    box-shadow: 0 3px 10px rgb(94, 2, 33);
+    ;
 }
- #question-pallete{
-       background-color:rgb(219, 227, 235);
-       box-shadow: 0 3px 13px rgb(94, 2, 33);
- }
 
- .qbtn:hover{
+#question-pallete {
+    background-color: rgb(219, 227, 235);
+    box-shadow: 0 3px 13px rgb(94, 2, 33);
+}
+
+.qbtn:hover {
     transform: scale(1.1);
 
- }
+}
 
- .sbtn:hover{
+.sbtn:hover {
 
-transform: scale(1.1);
+    transform: scale(1.1);
 
 }
-.container{
+
+.container {
     display: grid;
     grid-template-columns: 6fr 2fr;
     grid-template-areas:
-    "header header"
-    "question-box palette"
-    "question-box palette"
-    "question-box palette"
-    "question-box palette"
-    "footer footer";
+        "header header"
+        "question-box palette"
+        "question-box palette"
+        "question-box palette"
+        "question-box palette"
+        "footer footer";
     gap: 20px;
     padding: 20px;
 }
 
 
-#header{
+#header {
 
     background-color: rgb(94, 2, 33);
 
     color: white;
 }
-#prev:hover{
+
+#prev:hover {
     background-color: rgb(255, 194, 214);
     color: rgb(94, 2, 33);
     transform: scale(1.1);
 }
 
-#next{
-    background-color: rgb(94, 2, 33);;
+#next {
+    background-color: rgb(94, 2, 33);
+    ;
 }
-#next:hover{
-    background-color:rgb(125, 239, 125); ;
-    color:rgb(94, 2, 33);
-    
-    
+
+#next:hover {
+    background-color: rgb(125, 239, 125);
+    ;
+    color: rgb(94, 2, 33);
+
+
 
 }
 
-.question-box{
+.question-box {
     display: grid;
     /* grid-template-columns: repeat(auto-fit, minmax(300px, 300px)); */
     gap: 24px;
 }
 
 
-#questionForm{
+#questionForm {
     width: 100%;
 }
 
-.option{
+.option {
     border-radius: 7px;
     border: 1px solid gray;
     width: 100%;
@@ -84,11 +90,11 @@ transform: scale(1.1);
     background-color: white;
 }
 
-.option input{
+.option input {
     margin-right: 10px;
 }
 
-.option:hover{
+.option:hover {
     background-color: #e9f0ff;
     cursor: pointer;
 }
@@ -96,9 +102,7 @@ transform: scale(1.1);
 
 /* .q{
     /* border: 1px solid black; */
-*/
-
-.question-btn{
+*/ .question-btn {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
@@ -115,32 +119,32 @@ transform: scale(1.1);
     background-color: white;
 } */
 
-.primary{
+.primary {
     background-color: rgb(37, 99, 235);
     color: white;
     border: none;
 }
 
 
-.palette{
+.palette {
     grid-area: palette;
     background-color: rgb(241, 241, 241);
     margin-bottom: 20px;
 }
 
-.palette h4{
+.palette h4 {
     margin-bottom: 15px;
     text-align: center;
 }
 
-.grid-palette{
+.grid-palette {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     margin-bottom: 20px;
 }
 
-.grid-palette button{
+.grid-palette button {
     padding: 8px;
     border-radius: 6px;
     border: 1px solid gray;
@@ -148,21 +152,21 @@ transform: scale(1.1);
     cursor: pointer;
 }
 
-.current{
+.current {
     background-color: rgb(37, 99, 235);
     color: white;
 }
 
-.answered{
+.answered {
     background-color: rgb(34, 197, 94);
     color: white;
 }
 
-.marked{
-    background-color: rgb(250, 204, 21);
+.marked {
+    background-color: #ffdf20;
 }
 
-.submit{
+.submit {
     width: 100%;
     padding: 12px;
     font-size: 15px;
@@ -173,7 +177,7 @@ transform: scale(1.1);
     cursor: pointer;
 }
 
-.footer{
+.footer {
     display: grid;
     grid-area: footer;
     background-color: rgb(33, 49, 65);
@@ -184,21 +188,21 @@ transform: scale(1.1);
 }
 
 
-@media (max-width: 900px){
-    .container{
+@media (max-width: 900px) {
+    .container {
         grid-template-columns: 1fr;
         grid-template-areas:
-        "header"
-        "question-box"
-        "palette"
-        "footer";
+            "header"
+            "question-box"
+            "palette"
+            "footer";
     }
 
-    .question-btn{
+    .question-btn {
         grid-template-columns: 1fr;
     }
 
-    .grid-palette{
+    .grid-palette {
         grid-template-columns: repeat(4, 1fr);
     }
 }

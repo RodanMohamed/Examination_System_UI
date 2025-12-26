@@ -12,7 +12,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD
     <!-- ------------------------------header-------------------------------------------------- -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 ">
         <div class="p-5 bg-red-300 col-span-1 sm:col-span-2 lg:col-span-5 mb-14 flex justify-between flex-wrap"
@@ -32,9 +31,9 @@
 
         <div class="p-8  col-span-1 sm:col-span-2 lg:col-span-3  rounded-md ml-7 mr-3" id="question-box">
             <div class=" flex justify-between">
-                <h1 class="py-6 font-bold">Your Question</h1>
-                <button class="btn btn-outline btn-primary hover:bg-yellow-200 hover:text-red-950">
-                    <svg class="w-5 mt-1 " width="4" height="15" viewBox="0 0 134 178" fill="none"
+                <h1 class="py-6 font-bold" id="question-header">Your Question</h1>
+                <button class="btn btn-outline btn-primary hover:bg-yellow-200 hover:text-red-950 mark-button"> <svg
+                        class="w-5 mt-1 " width="4" height="15" viewBox="0 0 134 178" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M0.508789 173.421V5H9.49121V173.421C9.49121 175.901 7.48044 177.912 5 177.912C2.51956 177.912 0.508789 175.901 0.508789 173.421Z"
@@ -46,108 +45,35 @@
                             d="M126.599 0.508789C132.867 0.509111 135.69 8.27899 131.034 12.3164L130.807 12.5059L84.2832 49.7236L129.975 82.6201L130.217 82.8027C135.197 86.7019 132.477 94.824 126.038 94.8242H7.24609C3.5255 94.8242 0.50888 91.8085 0.508789 88.0879V7.24609C0.508789 3.52544 3.52543 0.508789 7.24609 0.508789H126.599ZM9.49121 85.8418H119.075L76.6357 55.2852C73.0178 52.6802 72.8822 47.3427 76.3633 44.5576L120.196 9.49121H9.49121V85.8418Z"
                             fill="black" />
                     </svg>
-                    <label class=""> Mark Question</label>
+                    Mark Question
                 </button>
-=======
-<!-- ------------------------------header-------------------------------------------------- -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 ">
-                <div class="p-5 bg-red-300 col-span-1 sm:col-span-2 lg:col-span-5 mb-14 flex justify-between flex-wrap " id="header">
-                    <h1 class=" text-2xl ">Your Time is started</h1>
-                    <span class="countdown font-mono text-2xl ">
-                    <!-- <span style="--value:0;" aria-live="polite" aria-label="10">0</span>
-                    : -->
-                    <span style="--value:30; --digits: 2;" aria-live="polite" aria-label="24">30</span>
-                    :
-                    <span style="--value:0; --digits: 2;" aria-live="polite" aria-label="59">0</span>
-                    </span>
-                    <input type="range" min="0" max="100" value="40" 
-                     class="range text-green-300 [--range-bg:gray] [--range-thumb:white] [--range-fill:0]" />
-                </div>
-  <!-- ------------------------------question box-------------------------------------------------- -->
-              
-                <div class="p-8  col-span-1 sm:col-span-2 lg:col-span-3  rounded-md ml-7 mr-3" id="question-box">
-                    <div class=" flex justify-end"> 
-                        
-                        <button class="btn btn-outline btn-primary mb-2 hover:bg-yellow-200 hover:text-red-950">
-                       <svg class= "w-5 mt-1 " width="4" height="15" viewBox="0 0 134 178" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.508789 173.421V5H9.49121V173.421C9.49121 175.901 7.48044 177.912 5 177.912C2.51956 177.912 0.508789 175.901 0.508789 173.421Z" fill="black"/>
-                        <path d="M126.598 5H7.24561C6.0054 5 5 6.0054 5 7.24562V88.0877C5 89.3279 6.00539 90.3333 7.24561 90.3333H126.038C128.218 90.3333 129.119 87.5393 127.35 86.2653L79.26 51.6405C78.054 50.7722 78.0088 48.9929 79.1693 48.0646L128.001 8.99914C129.659 7.67309 128.721 5 126.598 5Z" fill="#FFC107"/>
-                        <path d="M126.599 0.508789C132.867 0.509111 135.69 8.27899 131.034 12.3164L130.807 12.5059L84.2832 49.7236L129.975 82.6201L130.217 82.8027C135.197 86.7019 132.477 94.824 126.038 94.8242H7.24609C3.5255 94.8242 0.50888 91.8085 0.508789 88.0879V7.24609C0.508789 3.52544 3.52543 0.508789 7.24609 0.508789H126.599ZM9.49121 85.8418H119.075L76.6357 55.2852C73.0178 52.6802 72.8822 47.3427 76.3633 44.5576L120.196 9.49121H9.49121V85.8418Z" fill="black"/>
-                        </svg>
-                        <label class="">  Mark Question</label>
-                        </button>
-
-                    </div>
-                    <div class="border-1 border-red-400 rounded-md p-4 bg-slate-300">
-                    <h1 class="pb-6 font-bold">Your Question</h1>
-                    <form id="questionForm q">
-                        <label class="option">
-                            <input type="radio" name="q1"> Stack
-                        </label>
->>>>>>> 8752a7357273c355f860411d410085900d80e4fa
 
             </div>
-            <form id="questionForm q">
+            <form id="questionForm">
                 <label class="option">
-                    <input type="radio" name="q1"> Stack
+                    <input type="radio" name="q1">
+                    <span class="option-text"></span>
                 </label>
 
                 <label class="option">
-                    <input type="radio" name="q1"> Queue
+                    <input type="radio" name="q1">
+                    <span class="option-text"></span>
                 </label>
 
                 <label class="option">
-                    <input type="radio" name="q1"> Linked List
+                    <input type="radio" name="q1">
+                    <span class="option-text"></span>
                 </label>
 
                 <label class="option">
-                    <input type="radio" name="q1"> Binary Tree
+                    <input type="radio" name="q1">
+                    <span class="option-text"></span>
                 </label>
             </form>
             <!-- <div class="question-btn q">
                         <button class="btn">Previous</button>
                         <button class="btn primary">Next Question</button>
                     </div> -->
-<<<<<<< HEAD
-=======
-                    </div>
-                </div>
-<!-- ------------------------------question palette-------------------------------------------------- -->
-
-                <div class="p-2 bg-yellow-200 col-span-1 sm:col-span-2 lg:col-span-2 m-2 rounded-md ml-10 mr-12" id="question-pallete">
-                    <h4 class="text-center text-xl text-red-950 mb-3">Question Palette</h4>
-                    <div class="flex flex-wrap justify-center mb-10">
-                        <div class="text-black text-sm mr-2"><label class="checkbox checkbox-secondary bg-blue-600 w-3 h-3 rounded-none mr-1" ></label>Current</div>
-                        <div class="text-black text-sm mr-2"><label  class="checkbox checkbox-secondary bg-green-300 w-3 h-3 rounded-none mr-1" ></label>Answered</div>
-                        <div class="text-black text-sm"><label  class="checkbox checkbox-secondary bg-yellow-300 w-3 h-3 rounded-none mr-1" ></label>Marked</div>
-                    </div>
-
-                    <div class="grid-palette">
-                        <button class="btn qbtn ">1</button>
-                        <button class="btn qbtn ">2</button>
-                        <button class="btn qbtn " >3</button>
-                        <button class="btn qbtn " >4</button>
-                        <button class="btn qbtn ">5</button>
-                        <button class="btn qbtn ">6</button>
-                        <button class="btn qbtn ">7</button>
-                        <button class="btn qbtn ">8</button>
-                        <button class="btn qbtn ">9</button>
-                        <button class="btn qbtn ">10</button>
-
-                    </div>
-
-                    <button class="submit w-20 sbtn">Submit Exam</button>
-                </div>
-<!-- -------------------------------------------------------------------------------- -->
-                
-                <div class=" bg-transparent col-span-1 sm:col-span-2 lg:col-span-3 col-start-1 ml-7 my-4 mr-3 ">
-                    <div class="question-btn q flex justify-between flex-wrap">
-                        <button class="btn hover:bg-pink-950 " id="prev">Previous</button>
-                        <button class="btn primary" id="next">Next Question</button>
-                        
-                    </div>
-                </div>
->>>>>>> 8752a7357273c355f860411d410085900d80e4fa
         </div>
         <!-- ------------------------------question palette-------------------------------------------------- -->
 

@@ -41,5 +41,41 @@ var questionObject = [
     }
 ];
 
-localStorage.setItem("questions", JSON.stringify(questionObject));
+var nextButton = document.getElementById("next");
+var previousButton = document.getElementById("prev");
+var markButton = document.querySelector(".mark-button");
+var gridPalette = document.querySelectorAll(".grid-palette .qbtn");
+
+var counter = 0;
+function showQuestion() {
+    if (counter < questionObject.length) {
+        document.getElementById("question-header").innerText = questionObject[counter].question;
+
+        var options = document.querySelectorAll(".option .option-text");
+        for (let i = 0; i < options.length; i++) {
+            options[i].innerText = questionObject[counter].options[i];
+        }
+    }
+}
+
+showQuestion();
+
+nextButton.addEventListener("click", function () {
+    if (counter < questionObject.length - 1) {
+        counter++;
+        showQuestion();
+    }
+});
+previousButton.addEventListener("click", function () {
+    if (counter > 0) {
+        counter--;
+        showQuestion();
+    }
+});
+
+markButton.addEventListener("click", function () {
+    gridPalette[counter].style.backgroundColor = "#ffdf20";
+});
+
+
 
