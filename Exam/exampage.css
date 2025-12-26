@@ -3,11 +3,9 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-
 #question-box {
     background-color: rgb(219, 227, 235);
     box-shadow: 0 3px 10px rgb(94, 2, 33);
-    ;
 }
 
 #question-pallete {
@@ -15,15 +13,9 @@
     box-shadow: 0 3px 13px rgb(94, 2, 33);
 }
 
-.qbtn:hover {
-    transform: scale(1.1);
-
-}
-
+.qbtn:hover,
 .sbtn:hover {
-
     transform: scale(1.1);
-
 }
 
 .container {
@@ -40,11 +32,8 @@
     padding: 20px;
 }
 
-
 #header {
-
     background-color: rgb(94, 2, 33);
-
     color: white;
 }
 
@@ -56,24 +45,17 @@
 
 #next {
     background-color: rgb(94, 2, 33);
-    ;
 }
 
 #next:hover {
     background-color: rgb(125, 239, 125);
-    ;
     color: rgb(94, 2, 33);
-
-
-
 }
 
 .question-box {
     display: grid;
-    /* grid-template-columns: repeat(auto-fit, minmax(300px, 300px)); */
     gap: 24px;
 }
-
 
 #questionForm {
     width: 100%;
@@ -99,10 +81,7 @@
     cursor: pointer;
 }
 
-
-/* .q{
-    /* border: 1px solid black; */
-*/ .question-btn {
+.question-btn {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
@@ -110,21 +89,11 @@
     padding: 10px;
 }
 
-/* .btn{
-    padding: 10px;
-    font-size: 14px;
-    border-radius: 6px;
-    border: 1px solid gray;
-    cursor: pointer;
-    background-color: white;
-} */
-
 .primary {
     background-color: rgb(37, 99, 235);
     color: white;
     border: none;
 }
-
 
 .palette {
     grid-area: palette;
@@ -186,7 +155,6 @@
     color: white;
     padding: 15px;
 }
-
 
 @media (max-width: 900px) {
     .container {
