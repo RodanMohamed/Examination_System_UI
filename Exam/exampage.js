@@ -142,12 +142,12 @@ function submitExam(autoSubmit = false) {
         }
     }
 
- //////////////// /////////////store result for result page////////////////////////////////
+    //////////////// /////////////store result for result page////////////////////////////////
     localStorage.setItem("examScore", score);
     localStorage.setItem("totalQuestions", questionObject.length);
     localStorage.setItem("userAnswers", JSON.stringify(answers));
     localStorage.setItem("correctAnswers", JSON.stringify(correctAnswers));
-    localStorage.setItem("answeredCount",answers.filter(a => a !== null).length);
+    localStorage.setItem("answeredCount", answers.filter(a => a !== null).length);
 
 
     if (!autoSubmit) {
@@ -194,7 +194,7 @@ window.addEventListener("DOMContentLoaded", function () {
             if (remainingTime <= 0) {
                 clearInterval(timer);
                 alert("Time is up! Exam submitted.");
-                 submitExam(true);
+                submitExam(true);
                 return;
             }
 
