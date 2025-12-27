@@ -1,5 +1,5 @@
 
-document.getElementById("btn").addEventListener("click", function () {
+document.getElementById("logoutbtn").addEventListener("click", function () {
     var currentUser = JSON.parse(localStorage.getItem("loginUser"));
     var errorPara = document.getElementById("startExamError");
 
@@ -12,17 +12,23 @@ document.getElementById("btn").addEventListener("click", function () {
 });
 
 
-var logoutBtn = document.getElementById("logoutBtn");
+var logoutBtn = document.getElementById("logoutbtn");
 
-
-if (localStorage.getItem("currentUser")) {
+if (localStorage.getItem("loginUser")) {
     logoutBtn.style.display = "inline-block";
+} else {
+    logoutBtn.style.display = "none";
 }
 
+// logoutBtn.addEventListener("click", function () {
+
+//     localStorage.removeItem("currentUser");
+
+//     window.location.href = "homepage2.html";
+// });
+
 logoutBtn.addEventListener("click", function () {
-
-    localStorage.removeItem("currentUser");
-
-    window.location.href = "homepage.html";
+    localStorage.removeItem("loginUser"); 
+    window.location.href = "/Examination_System_UI/Login/login.html"; 
 });
 
