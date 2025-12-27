@@ -1,18 +1,22 @@
-#header{
+#header {
     background-color: rgb(94, 2, 33);
     box-shadow: 1px 5px 7px rgb(112, 27, 56);
 }
-#herosection{
-   background-color:  rgb(219, 227, 235);;
+
+#herosection {
+    background-color: rgb(219, 227, 235);
 }
-.card{
+
+.card {
     background-color: rgb(94, 2, 33);
     color: white;
 }
-#footer{
-    background-color:rgb(94, 2, 33);
+
+#footer {
+    background-color: rgb(94, 2, 33);
     color: white;
 }
-#examscontainer{
+
+#examscontainer {
     background-color: rgb(219, 227, 235);
 }

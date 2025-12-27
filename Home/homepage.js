@@ -27,3 +27,57 @@ if (startExamBtn) {
         }
     });
 }
+
+
+/*-------------------------Counters-----------------------------*/
+
+const counters = document.querySelectorAll(".counter");
+
+function animateCounter(counter) {
+    const target = +counter.dataset.target;
+    let current = 0;
+    const speed = 120;
+
+    const text = counter.innerText;
+
+    const isK = text.includes("K");
+    const isPlus = text.includes("+");
+    const isPercent = text.includes("%");
+    const isSlash = text.includes("/");
+
+    function formatNumber(value) {
+        if (isK) return Math.ceil(value / 1000) + "K+";
+        if (isPercent) return Math.ceil(value) + "%";
+        if (isSlash) return Math.ceil(value) + "/7";
+        if (isPlus) return Math.ceil(value) + "+";
+        return Math.ceil(value);
+    }
+
+    function update() {
+        const increment = target / speed;
+
+        if (current < target) {
+            current += increment;
+            counter.innerText = formatNumber(current);
+            requestAnimationFrame(update);
+        } else {
+            counter.innerText = formatNumber(target);
+        }
+    }
+
+    update();
+}
+
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.6
+});
+
+counters.forEach(counter => observer.observe(counter));
