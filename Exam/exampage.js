@@ -11,6 +11,8 @@ var questionObject = [
     { question: "Which of the following is a JavaScript framework?", options: ["React", "Laravel", "Django", "Ruby on Rails"] },
     { question: "How do you declare an array in JavaScript?", options: ["let arr = [];", "let arr = ();", "let arr = {};", "let arr = <>;"] }
 ];
+var correctAnswers = [1, 0, 3, 1, 3, 1, 0, 2, 0, 0];
+var submitBtn = document.querySelector(".sbtn");
 
 var counter = 0;
 var nextButton = document.getElementById("next");
@@ -130,26 +132,58 @@ optionInputs.forEach((input, index) => {
         updatePaletteStatus(); // green appears immediately
     });
 });
+///////////////////////////////////submit exam///////////////////////////////////////////////
+function submitExam(autoSubmit = false) {
+    let score = 0;
+
+    for (let i = 0; i < questionObject.length; i++) {
+        if (answers[i] === correctAnswers[i]) {
+            score++;
+        }
+    }
+
+ //////////////// /////////////store result for result page////////////////////////////////
+    localStorage.setItem("examScore", score);
+    localStorage.setItem("totalQuestions", questionObject.length);
+    localStorage.setItem("userAnswers", JSON.stringify(answers));
+    localStorage.setItem("correctAnswers", JSON.stringify(correctAnswers));
+    localStorage.setItem("answeredCount",answers.filter(a => a !== null).length);
+
+
+    if (!autoSubmit) {
+        alert("Exam submitted successfully!");
+    }
+
+    window.location.href = "/Examination_System_UI/Result/result.html";
+}
+submitBtn.addEventListener("click", function () {
+    if (answers.includes(null)) {
+        if (!confirm("You still have unanswered questions. Submit anyway?")) {
+            return;
+        }
+    }
+    submitExam();
+});
 
 // ---------------- Countdown -----------------
 window.addEventListener("DOMContentLoaded", function () {
-    const minutesEl = document.getElementById("minutes");
-    const secondsEl = document.getElementById("seconds");
-    const rangeEl = document.querySelector("input[type='range']");
+    var minutesEl = document.getElementById("minutes");
+    var secondsEl = document.getElementById("seconds");
+    var rangeEl = document.querySelector("input[type='range']");
 
-    const TOTAL_TIME = 30 * 60;
-    let remainingTime = TOTAL_TIME;
+    var TOTAL_TIME = 30 * 60;
+    var remainingTime = TOTAL_TIME;
 
     function startCountdown() {
-        const timer = setInterval(function () {
-            let minutes = Math.floor(remainingTime / 60);
-            let seconds = remainingTime % 60;
+        var timer = setInterval(function () {
+            var minutes = Math.floor(remainingTime / 60);
+            var seconds = remainingTime % 60;
 
             minutesEl.style.setProperty("--value", minutes);
             secondsEl.style.setProperty("--value", seconds);
 
-            let usedTime = TOTAL_TIME - remainingTime;
-            let progressPercent = Math.floor((usedTime / TOTAL_TIME) * 100);
+            var usedTime = TOTAL_TIME - remainingTime;
+            var progressPercent = Math.floor((usedTime / TOTAL_TIME) * 100);
             rangeEl.value = progressPercent;
 
             if (progressPercent >= 90) {
@@ -160,7 +194,7 @@ window.addEventListener("DOMContentLoaded", function () {
             if (remainingTime <= 0) {
                 clearInterval(timer);
                 alert("Time is up! Exam submitted.");
-                window.location.href = "/Examination_System_UI/TimeOut/timeout.html";
+                 submitExam(true);
                 return;
             }
 

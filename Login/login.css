@@ -7,6 +7,10 @@ body {
     width: 360px;
     padding: 20px;
     margin: 100px auto;
+    height: 500px;
+    border: 0px solid black;
+    margin: auto;
+    margin-top: 25px;
     border-radius: 10px;
     box-shadow: 0 7px 40px rgb(94, 2, 33);
     background-color: rgb(219, 227, 235);
