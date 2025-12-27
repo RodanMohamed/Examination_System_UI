@@ -1,137 +1,95 @@
-#container{
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(219, 227, 235);
+}
+
+#container {
     width: 360px;
-    height: 500px;
-    border: 0px solid black;
-    margin: auto;
-    margin-top: 100px;
+    padding: 20px;
+    margin: 100px auto;
     border-radius: 10px;
     box-shadow: 0 7px 40px rgb(94, 2, 33);
-    padding: 20px;
-    text-align: center;
-    /* align-items: center; */
-    position: relative;
     background-color: rgb(219, 227, 235);
+    text-align: center;
+    position: relative;
+}
 
-}   
-h1{
-    font-family: Arial, sans-serif; 
-    margin-left: 0px;
+h1 {
     color: rgb(94, 2, 33);
+    margin-bottom: 20px;
 }
-#para{
-    font-family: Arial, sans-serif; 
-    margin-left: 0px;
-    color: gray;
+
+#lblmail,
+#lblpass {
+    font-size: 17px;
+    color: rgb(94, 2, 33);
+    display: block;
+    margin-bottom: 5px;
+    text-align: left;
+    margin-left: 14%;
 }
-#emailinput {
-    width: 250px;
+
+input[type="email"],
+input[type="password"] {
+    width: 255px;
     height: 30px;
-    position: absolute;
-    /* left: 150px; */
-    left:18%;
-    top: 35%;
-    outline: none;
-    border-style:unset;
-    /* box-shadow: 1px 1px 1px rgb(90, 46, 60); */
     border: 0.1px solid gray;
-  
-    /* margin-bottom: 30px; */
     border-radius: 5px;
+    outline: none;
+    padding-left: 8px;
+    margin-bottom: 10px;
 }
-#emailinput:focus{
+
+input[type="email"]:focus,
+input[type="password"]:focus {
     border: 2px solid rgb(94, 2, 33);
 }
 
-#passinput {
-    width: 250px;
-    height: 30px;
-    /* margin-left: 0px; */
-    position: absolute;
-    left: 18%;
-    top: 50%;
-    outline: none;
-    border-style:unset;
-    border-radius: 5px;
-    border: 0.1px solid gray;
-}
-#passinput:focus{
-    border: 2px solid rgb(94, 2, 33);
-}
-#lblmail{
-    font-family: Arial, sans-serif; 
-    /* font-weight: bold; */
-    font-size: 17px;
-    position: absolute;
-    left: 18%;
-    top: 30%;
-    color: rgb(94, 2, 33);
-}
-#lblpass{
-    font-family: Arial, sans-serif; 
-    /* font-weight: bold; */
-    font-size: 17px;
-    position: absolute;
-    left: 18%;
-    top: 45%;
-    color: rgb(94, 2, 33);
-}
-/* #loginError{
-    margin-left: 0px;
-} */
-#loginbtn{
+#loginbtn {
     width: 255px;
     height: 35px;
-    background-color:  rgb(94, 2, 33);
+    background-color: rgb(94, 2, 33);
     color: white;
     border-radius: 7px;
     border: none;
     font-size: 18px;
     font-weight: bold;
-    /* margin-top: 40px;
-    margin-left: 80px; */
     cursor: pointer;
-    position: absolute;
-    left: 18%;
-    top: 67%;
+    margin-top: 15px;
 }
-#emailError{
-    font-family: Arial, sans-serif; 
-    font-size: 15px;
-    color: red;
-    position: absolute;
-    /* right:0px; */
-    left: 18%;
-    top: 42%;
-    padding-right: 10px;
+
+#loginbtn:hover {
+    background-color: rgb(110, 2, 39);
 }
-#passError{
-    font-family: Arial, sans-serif;
-    font-size: 15px; 
-    color: red;
-    position: absolute;
-    /* right:0px; */
-    left: 18%;
-    top: 57%;
-    padding-right: 10px;
-}
-#loginError{
-    font-family: Arial, sans-serif; 
+
+#errorMessages {
     font-size: 15px;
     color: red;
     font-weight: bold;
-    position: absolute;
-    left: 20%; 
-    top: 75%;
+    margin-top: 5px;
 }
-#Register{
-    font-family: Arial, sans-serif; 
-    position: absolute;
-    top: 80%;
-    left: 25%;
+
+#Register {
+    font-size: 14px;
     color: rgb(110, 109, 109);
-    
+    margin-top: 15px;
 }
-#linkreg{
+
+#linkreg {
     color: rgb(94, 2, 33);
-  
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#linkreg:hover {
+    text-decoration: underline;
+}
+
+input::placeholder {
+    color: gray;
+    transition: color 0.2s;
+}
+
+input:focus::placeholder {
+    color: transparent;
 }

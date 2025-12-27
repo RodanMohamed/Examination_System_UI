@@ -47,6 +47,11 @@ input:focus {
     border: 2px solid rgb(94, 2, 33);
 }
 
+input::placeholder {
+    color: gray;
+    transition: color 0.2s;
+}
+
 input:focus::placeholder {
     color: transparent;
 }
