@@ -1,34 +1,29 @@
+const logoutBtns = document.querySelectorAll(".logoutbtn");
+logoutBtns.forEach(btn => {
+    btn.style.display = localStorage.getItem("loginUser")
+        ? "inline-block"
+        : "none";
 
-document.getElementById("logoutbtn").addEventListener("click", function () {
-    var currentUser = JSON.parse(localStorage.getItem("loginUser"));
-    var errorPara = document.getElementById("startExamError");
-
-    if (currentUser) {
-        errorPara.textContent = "";
-        window.location.href = "/Examination_System_UI/Exam/exampage.html";
-    } else {
-        errorPara.textContent = "Error: You must log in before starting the exam!";
-    }
+    btn.addEventListener("click", () => {
+        localStorage.removeItem("loginUser");
+        window.location.href = "/Examination_System_UI/Login/login.html";
+    });
 });
 
 
-var logoutBtn = document.getElementById("logoutbtn");
+const startExamBtn = document.querySelector("#startExamBtn");
+const startExamError = document.querySelector("#startExamError");
 
-if (localStorage.getItem("loginUser")) {
-    logoutBtn.style.display = "inline-block";
-} else {
-    logoutBtn.style.display = "none";
+if (startExamBtn) {
+    startExamBtn.addEventListener("click", () => {
+        const currentUser = JSON.parse(localStorage.getItem("loginUser"));
+
+        if (currentUser) {
+            startExamError.textContent = "";
+            window.location.href = "/Examination_System_UI/Exam/exampage.html";
+        } else {
+            startExamError.textContent =
+                "Error: You must log in before starting the exam!";
+        }
+    });
 }
-
-// logoutBtn.addEventListener("click", function () {
-
-//     localStorage.removeItem("currentUser");
-
-//     window.location.href = "homepage2.html";
-// });
-
-logoutBtn.addEventListener("click", function () {
-    localStorage.removeItem("loginUser"); 
-    window.location.href = "/Examination_System_UI/Login/login.html"; 
-});
-
