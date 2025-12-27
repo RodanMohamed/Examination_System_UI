@@ -27,7 +27,7 @@ function validationlogin(e) {
 
     emailError.textContent = "";
     passError.textContent = "";
-    loginError.textContent = "";
+    // loginError.textContent = "";
 
 
     if (email.trim() === "") {
@@ -53,15 +53,18 @@ function validationlogin(e) {
 function plur() {
     emailError.textContent = "";
     passError.textContent = "";
-    //  loginError.textContent = "";
+    loginError.textContent = "";
+
 
 }
+
+
 function login() {
     var email = emailinput.value.trim();
     var password = passinput.value.trim();
     var loginError = document.getElementById("loginError");
 
-    loginError.textContent = "";
+    // loginError.textContent = "";
     // get users array from localStorage
     var users = JSON.parse(localStorage.getItem("users")) || [];
 
