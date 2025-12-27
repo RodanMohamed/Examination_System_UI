@@ -38,6 +38,15 @@ function showQuestion() {
             optionInputs[answers[counter]].checked = true;
         }
 
+        var markText = markButton.lastChild;
+        if (gridPalette[counter].dataset.marked === "true") {
+            markText.textContent = "Unmark Question";
+            markButton.style.background = "#ffdf20";
+        } else {
+            markText.textContent = "Mark Question";
+            markButton.style.background = "";
+        }
+
         updatePaletteStatus();
     }
 }
@@ -63,17 +72,17 @@ function updatePaletteStatus() {
             "text-white"
         );
 
-      
+
         if (btn.dataset.marked === "true") {
             btn.classList.add("bg-yellow-300");
         }
 
-        
+
         if (answers[index] !== null) {
             btn.classList.add("bg-green-400");
         }
 
-      
+
         if (index === counter) {
             btn.classList.remove("bg-green-400");
             btn.classList.add("bg-blue-600", "text-white");
@@ -94,9 +103,19 @@ previousButton.addEventListener("click", function () {
     }
 });
 markButton.addEventListener("click", function () {
-    gridPalette[counter].dataset.marked = "true";
+
+    if (gridPalette[counter].dataset.marked === "true") {
+        gridPalette[counter].dataset.marked = "false";
+        this.lastChild.textContent = "Mark Question";
+        markButton.style.background = "";
+    } else {
+        gridPalette[counter].dataset.marked = "true";
+        this.lastChild.textContent = "Unmark Question";
+        markButton.style.background = "#ffdf20";
+    }
     updatePaletteStatus();
 });
+
 
 gridPalette.forEach((btn, index) => {
     btn.addEventListener("click", function () {
@@ -107,7 +126,7 @@ gridPalette.forEach((btn, index) => {
 
 optionInputs.forEach((input, index) => {
     input.addEventListener("change", function () {
-        answers[counter] = index; 
+        answers[counter] = index;
         updatePaletteStatus(); // green appears immediately
     });
 });
@@ -141,6 +160,7 @@ window.addEventListener("DOMContentLoaded", function () {
             if (remainingTime <= 0) {
                 clearInterval(timer);
                 alert("Time is up! Exam submitted.");
+                window.location.href = "/Examination_System_UI/TimeOut/timeout.html";
                 return;
             }
 
