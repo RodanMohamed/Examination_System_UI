@@ -1,7 +1,14 @@
+html,
 body {
+    height: 100%;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #f4f4f4;
+    background-color: rgb(219, 227, 235);
+}
+
+#header {
+    background-color: rgb(94, 2, 33);
+    box-shadow: 1px 5px 7px rgb(112, 27, 56);
 }
 
 .container {
@@ -18,4 +25,18 @@ body {
     margin: 50px auto;
     overflow: hidden;
     padding: 70px;
+}
+
+.container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 12px 50px rgba(94, 2, 33, 0.6);
+    transition: all 0.3s ease;
+}
+
+.header-text {
+    font-size: 40px;
+}
+
+.text {
+    font-size: 18px;
 }

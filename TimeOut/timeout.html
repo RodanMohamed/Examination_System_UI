@@ -6,19 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="timeout.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
 <body>
+    <div class="navbar  shadow-md shadow-blue-400   z-[9999]" id="header">
+        <div class="navbar-start">
+
+            <a class="btn btn-ghost text-3xl text-white hover:bg-gray-300 hover:text-red-950">Thinker Zone </a>
+        </div>
+    </div>
+
+
     <div class="container">
         <div>
             <img width="70" height="70"
                 src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-time-out-work-from-home-flaticons-lineal-color-flat-icons.png"
-                alt="external-time-out-work-from-home-flaticons-lineal-color-flat-icons" />
+                alt="time-out" />
         </div>
-        <div>
-            <h1 class="header">Oops!</h1>
-            <p class="text">Your exam time is up. You will be redirected to the results page.</p>
+        <div class="message">
+            <h1 class="header-text">Oops, <span id="studentName"></span>!</h1>
+            <p class="text">
+                Your exam time is up. Thank you for your effort - you will be redirected to the results page.
+            </p>
         </div>
+        <br>
+        <div><span class="loading loading-bars loading-xl"></span></div>
     </div>
     <script src="timeout.js"></script>
 </body>
