@@ -72,6 +72,17 @@ function showQuestion() {
 
         updatePaletteStatus();
     }
+    if (counter == 0) {
+        previousButton.style.visibility = "hidden";
+    } else {
+        previousButton.style.visibility = "visible";
+    }
+    if (counter == 9) {
+        nextButton.style.visibility = "hidden";
+    } else {
+        nextButton.style.visibility = "visible";
+    }
+
 }
 
 showQuestion();
@@ -226,3 +237,4 @@ window.addEventListener("DOMContentLoaded", function () {
 
     startCountdown();
 });
+
