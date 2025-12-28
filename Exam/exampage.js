@@ -22,6 +22,27 @@ var gridPalette = document.querySelectorAll(".grid-palette .qbtn");
 
 var answers = new Array(questionObject.length).fill(null);
 var optionInputs = document.querySelectorAll(".option input");
+//shuffle questions-------------------------------------------
+function shuffleQuestions(questions, answers) {
+    var i, j;
+    var tempQ, tempA;
+
+    for (i = questions.length - 1; i > 0; i--) {
+        j = Math.floor(Math.random() * (i + 1));
+
+        tempQ = questions[i];
+        questions[i] = questions[j];
+        questions[j] = tempQ;
+
+        tempA = answers[i];
+        answers[i] = answers[j];
+        answers[j] = tempA;
+    }
+}
+
+shuffleQuestions(questionObject, correctAnswers);
+showQuestion();
+
 
 // ---------------- Show Question -----------------
 function showQuestion() {
