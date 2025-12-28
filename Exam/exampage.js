@@ -171,7 +171,7 @@ window.addEventListener("DOMContentLoaded", function () {
     var secondsEl = document.getElementById("seconds");
     var rangeEl = document.querySelector("input[type='range']");
 
-    var TOTAL_TIME = 30 * 60;
+    var TOTAL_TIME = .1 * 60;
     var remainingTime = TOTAL_TIME;
 
     function startCountdown() {
@@ -195,6 +195,7 @@ window.addEventListener("DOMContentLoaded", function () {
                 clearInterval(timer);
                 alert("Time is up! Exam submitted.");
                 submitExam(true);
+                window.location.replace("../TimeOut/timeout.html");
                 return;
             }
 

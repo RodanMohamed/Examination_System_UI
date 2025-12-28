@@ -87,7 +87,7 @@ function login() {
     if (userFound) {
         localStorage.setItem("loginUser", JSON.stringify(loginUserData));
         return true;
-    } else{
+    } else {
         loginError.textContent = "Invalid data – Please register first";
         return false;
     }
