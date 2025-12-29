@@ -9,7 +9,7 @@ var isValid = true;
 
 // localStorage.setItem("email", "test@gmail.com");
 // localStorage.setItem("pass", "123456");
-//localStorage.clear();
+// localStorage.clear();
 
 
 

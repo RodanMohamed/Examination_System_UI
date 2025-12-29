@@ -57,7 +57,8 @@ registerButton.addEventListener("click", function (event) {
         users.push(userData);
         localStorage.setItem("users", JSON.stringify(users));
         alert("Registration successful!");
-        window.location.replace("../Login/login.html");
+        localStorage.setItem("loginUser", JSON.stringify(userData));
+        window.location.replace("../Home/homepage.html");
     }
 });
 

@@ -1,8 +1,8 @@
 const logoutBtns = document.querySelectorAll(".logoutbtn");
 logoutBtns.forEach(btn => {
-    btn.style.display = localStorage.getItem("loginUser")
-        ? "inline-block"
-        : "none";
+    // btn.style.display = localStorage.getItem("loginUser")
+    //     ? "inline-block"
+    //     : "none";
 
     btn.addEventListener("click", () => {
         localStorage.removeItem("loginUser");

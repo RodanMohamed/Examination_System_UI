@@ -279,7 +279,7 @@ submitBtn.addEventListener("click", function () {
         }
     }
     submitExam();
-    TOTAL_TIME=1*60;
+    TOTAL_TIME=30*60;
 });
 
 // ---------------- Countdown -----------------
@@ -288,7 +288,7 @@ window.addEventListener("DOMContentLoaded", function () {
     var secondsEl = document.getElementById("seconds");
     var rangeEl = document.querySelector("input[type='range']");
 
-    var TOTAL_TIME = 1 * 60;
+    var TOTAL_TIME = 30 * 60;
     remainingTime = localStorage.getItem("remainingTime");
 
     if (remainingTime === null) {
