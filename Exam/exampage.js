@@ -1,3 +1,27 @@
+// ---------------- exam Access Control ----------------
+(function () {
+
+
+    if (localStorage.getItem("examSubmitted") === "true" ||
+        localStorage.getItem("examTimeOut") === "true") {
+
+        alert("You have already finished this exam.");
+        window.location.replace("/Examination_System_UI/Login/login.html");
+        return;
+    }
+
+
+    if (localStorage.getItem("examStarted") === "true") {
+        alert("You cannot re-enter the exam.");
+        window.location.replace("/Examination_System_UI/Login/login.html");
+        return;
+    }
+
+
+    localStorage.setItem("examStarted", "true");
+
+})();
+
 // ---------------- Questions -----------------
 var questionObject = [
     { question: "JavaScript is primarily used for?", options: ["Styling web pages", "Adding interactivity to web pages", "Database management", "Server hardware management"] },
@@ -11,21 +35,26 @@ var questionObject = [
     { question: "Which of the following is a JavaScript framework?", options: ["React", "Laravel", "Django", "Ruby on Rails"] },
     { question: "How do you declare an array in JavaScript?", options: ["let arr = [];", "let arr = ();", "let arr = {};", "let arr = <>;"] }
 ];
-var correctAnswers = [1, 0, 3, 1, 3, 1, 0, 2, 0, 0];
-var submitBtn = document.querySelector(".sbtn");
 
+var correctAnswers = [1, 0, 3, 1, 3, 1, 0, 2, 0, 0];
+
+var submitBtn = document.querySelector(".sbtn");
 var counter = 0;
 var nextButton = document.getElementById("next");
 var previousButton = document.getElementById("prev");
 var markButton = document.querySelector(".mark-button");
 var gridPalette = document.querySelectorAll(".grid-palette .qbtn");
-
-var answers = new Array(questionObject.length).fill(null);
 var optionInputs = document.querySelectorAll(".option input");
-//shuffle questions-------------------------------------------
-function shuffleQuestions(questions, answers) {
-    var i, j;
-    var tempQ, tempA;
+
+// answers array (instead of fill)
+var answers = [];
+for (var i = 0; i < questionObject.length; i++) {
+    answers.push(null);
+}
+
+// ---------------- Shuffle Questions -----------------
+function shuffleQuestions(questions, answersArr) {
+    var i, j, tempQ, tempA;
 
     for (i = questions.length - 1; i > 0; i--) {
         j = Math.floor(Math.random() * (i + 1));
@@ -34,15 +63,14 @@ function shuffleQuestions(questions, answers) {
         questions[i] = questions[j];
         questions[j] = tempQ;
 
-        tempA = answers[i];
-        answers[i] = answers[j];
-        answers[j] = tempA;
+        tempA = answersArr[i];
+        answersArr[i] = answersArr[j];
+        answersArr[j] = tempA;
     }
 }
 
 shuffleQuestions(questionObject, correctAnswers);
 showQuestion();
-
 
 // ---------------- Show Question -----------------
 function showQuestion() {
@@ -51,10 +79,13 @@ function showQuestion() {
             questionObject[counter].question;
 
         var options = document.querySelectorAll(".option .option-text");
-        optionInputs.forEach(input => input.checked = false);
 
-        for (let i = 0; i < options.length; i++) {
-            options[i].innerText = questionObject[counter].options[i];
+        for (var i = 0; i < optionInputs.length; i++) {
+            optionInputs[i].checked = false;
+        }
+
+        for (var j = 0; j < options.length; j++) {
+            options[j].innerText = questionObject[counter].options[j];
         }
 
         if (answers[counter] !== null) {
@@ -72,33 +103,16 @@ function showQuestion() {
 
         updatePaletteStatus();
     }
-    if (counter == 0) {
-        previousButton.style.visibility = "hidden";
-    } else {
-        previousButton.style.visibility = "visible";
-    }
-    if (counter == 9) {
-        nextButton.style.visibility = "hidden";
-    } else {
-        nextButton.style.visibility = "visible";
-    }
 
+    previousButton.style.visibility = counter === 0 ? "hidden" : "visible";
+    nextButton.style.visibility = counter === 9 ? "hidden" : "visible";
 }
 
-showQuestion();
-
-// ---------------- Palette & Navigation -----------------
-function updateCurrentPalette() {
-    gridPalette.forEach((btn, index) => {
-        btn.classList.remove("bg-blue-600", "text-white");
-        if (index === counter) {
-            btn.classList.add("bg-blue-600", "text-white");
-        }
-    });
-}
-
+// ---------------- Palette -----------------
 function updatePaletteStatus() {
-    gridPalette.forEach((btn, index) => {
+    for (var i = 0; i < gridPalette.length; i++) {
+        var btn = gridPalette[i];
+
         btn.classList.remove(
             "bg-blue-600",
             "bg-green-400",
@@ -106,80 +120,88 @@ function updatePaletteStatus() {
             "text-white"
         );
 
-
         if (btn.dataset.marked === "true") {
             btn.classList.add("bg-yellow-300");
         }
 
-
-        if (answers[index] !== null) {
+        if (answers[i] !== null) {
             btn.classList.add("bg-green-400");
         }
 
-
-        if (index === counter) {
+        if (i === counter) {
             btn.classList.remove("bg-green-400");
             btn.classList.add("bg-blue-600", "text-white");
         }
-    });
+    }
 }
 
+// ---------------- Navigation -----------------
 nextButton.addEventListener("click", function () {
     if (counter < questionObject.length - 1) {
         counter++;
         showQuestion();
     }
 });
+
 previousButton.addEventListener("click", function () {
     if (counter > 0) {
         counter--;
         showQuestion();
     }
 });
-markButton.addEventListener("click", function () {
 
+markButton.addEventListener("click", function () {
     if (gridPalette[counter].dataset.marked === "true") {
         gridPalette[counter].dataset.marked = "false";
         this.lastChild.textContent = "Mark Question";
-        markButton.style.background = "";
+        this.style.background = "";
     } else {
         gridPalette[counter].dataset.marked = "true";
         this.lastChild.textContent = "Unmark Question";
-        markButton.style.background = "#ffdf20";
+        this.style.background = "#ffdf20";
     }
     updatePaletteStatus();
 });
 
+for (var i = 0; i < gridPalette.length; i++) {
+    (function (index) {
+        gridPalette[index].addEventListener("click", function () {
+            counter = index;
+            showQuestion();
+        });
+    })(i);
+}
 
-gridPalette.forEach((btn, index) => {
-    btn.addEventListener("click", function () {
-        counter = index;
-        showQuestion();
-    });
-});
+for (var i = 0; i < optionInputs.length; i++) {
+    (function (index) {
+        optionInputs[index].addEventListener("change", function () {
+            answers[counter] = index;
+            updatePaletteStatus();
+        });
+    })(i);
+}
 
-optionInputs.forEach((input, index) => {
-    input.addEventListener("change", function () {
-        answers[counter] = index;
-        updatePaletteStatus(); // green appears immediately
-    });
-});
-///////////////////////////////////submit exam///////////////////////////////////////////////
-function submitExam(autoSubmit = false) {
-    let score = 0;
-
-    for (let i = 0; i < questionObject.length; i++) {
-        if (answers[i] === correctAnswers[i]) {
-            score++;
-        }
+// ---------------- Submit Exam -----------------
+function submitExam(autoSubmit) {
+    if (autoSubmit === undefined) {
+        autoSubmit = false;
     }
 
-    //////////////// /////////////store result for result page////////////////////////////////
+    var score = 0;
+    var answeredCount = 0;
+
+    for (var i = 0; i < questionObject.length; i++) {
+        if (answers[i] !== null) answeredCount++;
+        if (answers[i] === correctAnswers[i]) score++;
+    }
+
     localStorage.setItem("examScore", score);
     localStorage.setItem("totalQuestions", questionObject.length);
     localStorage.setItem("userAnswers", JSON.stringify(answers));
     localStorage.setItem("correctAnswers", JSON.stringify(correctAnswers));
-    localStorage.setItem("answeredCount", answers.filter(a => a !== null).length);
+    localStorage.setItem("answeredCount", answeredCount);
+    localStorage.setItem("examSubmitted", "true");
+    localStorage.removeItem("examStarted"); // release lock
 
 
     if (!autoSubmit) {
@@ -188,8 +210,9 @@ function submitExam(autoSubmit = false) {
 
     window.location.href = "/Examination_System_UI/Result/result.html";
 }
+
 submitBtn.addEventListener("click", function () {
-    if (answers.includes(null)) {
+    if (answers.indexOf(null) !== -1) {
         if (!confirm("You still have unanswered questions. Submit anyway?")) {
             return;
         }
@@ -203,38 +226,35 @@ window.addEventListener("DOMContentLoaded", function () {
     var secondsEl = document.getElementById("seconds");
     var rangeEl = document.querySelector("input[type='range']");
 
-    var TOTAL_TIME = 30 * 60;
+    var TOTAL_TIME = 0.3 * 60;
     var remainingTime = TOTAL_TIME;
 
-    function startCountdown() {
-        var timer = setInterval(function () {
-            var minutes = Math.floor(remainingTime / 60);
-            var seconds = remainingTime % 60;
+    var timer = setInterval(function () {
+        var minutes = Math.floor(remainingTime / 60);
+        var seconds = remainingTime % 60;
 
-            minutesEl.style.setProperty("--value", minutes);
-            secondsEl.style.setProperty("--value", seconds);
+        minutesEl.style.setProperty("--value", minutes);
+        secondsEl.style.setProperty("--value", seconds);
 
-            var usedTime = TOTAL_TIME - remainingTime;
-            var progressPercent = Math.floor((usedTime / TOTAL_TIME) * 100);
-            rangeEl.value = progressPercent;
+        var usedTime = TOTAL_TIME - remainingTime;
+        var progressPercent = Math.floor((usedTime / TOTAL_TIME) * 100);
+        rangeEl.value = progressPercent;
 
-            if (progressPercent >= 90) {
-                rangeEl.style.setProperty("--range-bg", "red");
-                rangeEl.style.setProperty("--range-thumb", "red");
-            }
+        if (progressPercent >= 90) {
+            rangeEl.style.setProperty("--range-bg", "red");
+            rangeEl.style.setProperty("--range-thumb", "red");
+        }
 
-            if (remainingTime <= 0) {
-                clearInterval(timer);
-                alert("Time is up! Exam submitted.");
-                submitExam(true);
-                window.location.replace("../TimeOut/timeout.html");
-                return;
-            }
+        if (remainingTime <= 0) {
+            clearInterval(timer);
+            // alert("Time is up! Exam submitted.");
+           localStorage.setItem("examTimeOut", "true");
+           localStorage.removeItem("examStarted");
 
-            remainingTime--;
-        }, 1000);
-    }
+           submitExam(true);
+           window.location.replace("../TimeOut/timeout.html");
+        }
 
-    startCountdown();
+        remainingTime--;
+    }, 1000);
 });
-

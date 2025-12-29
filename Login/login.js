@@ -86,6 +86,10 @@ function login() {
 
     if (userFound) {
         localStorage.setItem("loginUser", JSON.stringify(loginUserData));
+        localStorage.removeItem("examStarted");
+        localStorage.removeItem("examSubmitted");
+        localStorage.removeItem("examTimeOut");
+
         return true;
     } else {
         loginError.textContent = "Invalid data – Please register first";
