@@ -254,10 +254,10 @@ function submitExam(autoSubmit) {
     localStorage.setItem("userAnswers", JSON.stringify(answers));
     localStorage.setItem("answeredCount", answeredCount);
     localStorage.setItem("examSubmitted", "true");
-    localStorage.removeItem("currentQuestion");
+    // localStorage.removeItem("currentQuestion");
     // localStorage.removeItem("remainingTime");
     // localStorage.removeItem("examStarted");
-    localStorage.removeItem("markedQuestions");
+    // localStorage.removeItem("markedQuestions");
     
 
 
