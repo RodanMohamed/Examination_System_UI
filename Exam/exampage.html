@@ -11,19 +11,17 @@
 </head>
 
 <body>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
 
-    <!-- ------------------------------header-------------------------------------------------- -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 ">
-
-        <div class="p-5 bg-red-300 col-span-1 sm:col-span-2 lg:col-span-6 mb-14 flex justify-between flex-wrap items-center"
+        <!-- ------------------------------header-------------------------------------------------- -->
+        <div class="p-5 bg-red-300 col-span-1 sm:col-span-2 lg:col-span-6 mb-14 flex justify-between flex-wrap items-center order-first"
             id="header">
             <h1 class="text-2xl">Your Time is started!!!</h1>
 
             <span
-                class="bg-gradient-to-tr from-gray-700 via-green-100 to-red-400 rounded-lg text-black flex p-4 justify-between">
+                class="bg-gradient-to-tr from-gray-700 via-green-100 to-red-400 rounded-lg text-black flex p-4 justify-between items-center gap-3">
                 <figure>
-                    <svg class="w-5 mr-3 " width="200" height="20" viewBox="0 0 128 128" fill="#ffffff"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-6 h-6" viewBox="0 0 128 128" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M120 64C120 33.0721 94.9279 8 64 8C33.0721 8 8 33.0721 8 64C8 94.9279 33.0721 120 64 120V128C28.6538 128 0 99.3462 0 64C0 28.6538 28.6538 0 64 0C99.3462 0 128 28.6538 128 64C128 99.3462 99.3462 128 64 128V120C94.9279 120 120 94.9279 120 64Z"
                             fill="#ffffff" />
@@ -32,21 +30,17 @@
                             fill="#ffffff" />
                     </svg>
                 </figure>
-                <span class="countdown font-mono text-2xl ">
-                    <span id="minutes" style="--value:30; --digits: 2;"> 30</span>
-                    :
-                    <span id="seconds" style="--value:0; --digits: 2;">0</span>
+                <span class="countdown font-mono text-2xl">
+                    <span id="minutes" style="--value:30;">30</span>:
+                    <span id="seconds" style="--value:0;">00</span>
                 </span>
             </span>
-<!-- 
-            <input type="range" min="0" max="100" value="0"
-                class="range text-blue-500 [--range-bg:gray] [--range-thumb:white] [--range-fill:1]" /> -->
         </div>
 
         <!-- ------------------------------question box-------------------------------------------------- -->
-        <div class="p-8 col-span-1 sm:col-span-2 lg:col-span-4 rounded-md ml-7 mr-3" id="question-box">
+        <div class="p-8 col-span-1 sm:col-span-2 lg:col-span-4 rounded-md ml-3 mr-3 order-1 lg:order-none"
+            id="question-box">
             <div class="flex justify-end">
-
                 <button class="btn btn-outline btn-primary hover:bg-yellow-200 hover:text-red-950 mark-button">
                     <svg class="w-5 mt-1" width="4" height="15" viewBox="0 0 134 178" fill="none"
                         xmlns="http://www.w3.org/2000/svg">
@@ -63,7 +57,7 @@
                     Mark Question
                 </button>
             </div>
-            <div class="p-5 border-1 border-red-500 rounded-md mt-3 bg-gray-300">
+            <div class="p-5 border border-red-500 rounded-md mt-3 bg-gray-300">
                 <h1 class="py-6 font-bold" id="question-header">Your Question</h1>
                 <form id="questionForm">
                     <label class="option"><input type="radio" name="q1"><span class="option-text"></span></label>
@@ -72,13 +66,11 @@
                     <label class="option"><input type="radio" name="q1"><span class="option-text"></span></label>
                 </form>
             </div>
-
         </div>
 
         <!-- ------------------------------question palette-------------------------------------------------- -->
-        <div class="p-2 bg-yellow-200 col-span-1 sm:col-span-2 lg:col-span-2 m-2 rounded-md ml-10 mr-12"
+        <div class="p-2 bg-yellow-200 col-span-1 sm:col-span-2 lg:col-span-2 m-2 rounded-md ml-10 mr-12 order-3 lg:order-none"
             id="question-pallete">
-
             <input type="range" min="0" max="100" value="0"
                 class="range text-blue-500 [--range-bg:gray] [--range-thumb:white] [--range-fill:1]" />
             <h4 class="text-center text-xl text-red-950 mb-3">Question Palette</h4>
@@ -110,10 +102,10 @@
         </div>
 
         <!-- ------------------------------navigation-------------------------------------------------- -->
-        <div class="bg-transparent col-span-1 sm:col-span-2 lg:col-span-4 col-start-1 ml-7 my-2 mr-3">
-            <div class="question-btn q flex justify-between flex-wrap">
-                <button class="btn bg-slate-300" id="prev">Previous</button>
-                <button class="btn primary" id="next">Next Question</button>
+        <div class="bg-transparent col-span-1 sm:col-span-2 lg:col-span-4 ml-7 my-2 mr-3 order-2 lg:order-none">
+            <div class="question-btn q flex flex-col lg:flex-row justify-between gap-4">
+                <button class="btn btn-primary order-1 lg:order-2" id="next">Next Question</button>
+                <button class="btn bg-slate-300 order-2 lg:order-1" id="prev">Previous</button>
             </div>
         </div>
 
