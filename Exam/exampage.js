@@ -48,7 +48,7 @@
 
 })();
 
-
+localStorage.removeItem("correctAnswers");
 // ---------------- Restore Exam State ----------------
 
 function saveExamState() {
