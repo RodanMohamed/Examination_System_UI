@@ -27,16 +27,19 @@ var text = resultMessage.querySelector("p");
 console.log(resultMessage);
 
 document.getElementById("homeBtn").addEventListener("click", function () {
-    // localStorage.removeItem("examScore");
-    // localStorage.removeItem("totalQuestions");
-    // localStorage.removeItem("answeredCount");
-    // localStorage.removeItem("userAnswers");
-    // localStorage.removeItem("questions");
-    // localStorage.removeItem("correctAnswers");
-    // localStorage.removeItem("examSubmitted");
-    // localStorage.removeItem("remainingTime");
-    // localStorage.removeItem("questionsShuffled");
-    // localStorage.removeItem("loginUser");
+    localStorage.removeItem("examScore");
+    localStorage.removeItem("totalQuestions");
+    localStorage.removeItem("answeredCount");
+    localStorage.removeItem("userAnswers");
+    localStorage.removeItem("questions");
+    localStorage.removeItem("questionsShuffled");
+    localStorage.removeItem("loginUser");
+    localStorage.removeItem("remainingTime");
+    localStorage.removeItem("currentQuestion");
+    localStorage.removeItem("savedAnswers");
+    localStorage.removeItem("examSubmitted");
+
+
 
     window.location.href = "../Login/login.html";
 });
