@@ -5,24 +5,24 @@ logoutBtns.forEach(btn => {
     //     : "none";
 
     btn.addEventListener("click", () => {
-        localStorage.removeItem("loginUser");
-        localStorage.removeItem("answeredCount");
-        localStorage.removeItem("correctAnswers");
-        localStorage.removeItem("examScore");
-        localStorage.removeItem("questionsShuffled");
-        localStorage.removeItem("remainingTime");
-        localStorage.removeItem("totalQuestions");
-        localStorage.removeItem("userAnswers");
+        // localStorage.removeItem("loginUser");
+        // localStorage.removeItem("answeredCount");
+        // localStorage.removeItem("correctAnswers");
+        // localStorage.removeItem("examScore");
+        // localStorage.removeItem("questionsShuffled");
+        // localStorage.removeItem("remainingTime");
+        // localStorage.removeItem("totalQuestions");
+        // localStorage.removeItem("userAnswers");
 
 
         window.location.href = "/Examination_System_UI/Login/login.html";
-        localStorage.removeItem("savedAnswers");
-         localStorage.removeItem("currentQuestion");
-        localStorage.removeItem("remainingTime");
-        localStorage.removeItem("markedQuestions");
-        localStorage.removeItem("examScore");
-        localStorage.removeItem("userAnswers");
-        localStorage.removeItem("questionsShuffled");
+        // localStorage.removeItem("savedAnswers");
+        //  localStorage.removeItem("currentQuestion");
+        // localStorage.removeItem("remainingTime");
+        // localStorage.removeItem("markedQuestions");
+        // localStorage.removeItem("examScore");
+        // localStorage.removeItem("userAnswers");
+        // localStorage.removeItem("questionsShuffled");
     });
 });
 

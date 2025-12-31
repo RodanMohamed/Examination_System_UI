@@ -282,9 +282,10 @@ function submitExam(autoSubmit) {
     localStorage.removeItem("savedAnswers");
     localStorage.removeItem("currentQuestion");
     localStorage.removeItem("remainingTime");
-    localStorage.setItem("examSubmitted", "true");
-    localStorage.removeItem("examStarted");
+    // localStorage.setItem("examSubmitted", "true");
+    // localStorage.removeItem("examStarted");
     localStorage.removeItem("markedQuestions");
+
 
 
 
