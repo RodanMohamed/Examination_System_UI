@@ -7,6 +7,13 @@ logoutBtns.forEach(btn => {
     btn.addEventListener("click", () => {
         localStorage.removeItem("loginUser");
         window.location.href = "/Examination_System_UI/Login/login.html";
+        localStorage.removeItem("savedAnswers");
+         localStorage.removeItem("currentQuestion");
+        localStorage.removeItem("remainingTime");
+        localStorage.removeItem("markedQuestions");
+        localStorage.removeItem("examScore");
+        localStorage.removeItem("userAnswers");
+        localStorage.removeItem("questionsShuffled");
     });
 });
 

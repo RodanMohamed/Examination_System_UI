@@ -262,6 +262,7 @@ function submitExam(autoSubmit) {
     localStorage.setItem("examSubmitted", "true");
     localStorage.removeItem("examStarted");
     localStorage.removeItem("markedQuestions");
+    remainingTime=0;
     
 
 
@@ -270,6 +271,14 @@ function submitExam(autoSubmit) {
     }
 
     window.location.href = "/Examination_System_UI/Result/result.html";
+        localStorage.removeItem("savedAnswers");
+         localStorage.removeItem("currentQuestion");
+        localStorage.removeItem("remainingTime");
+        localStorage.removeItem("markedQuestions");
+        localStorage.removeItem("examScore");
+        localStorage.removeItem("userAnswers");
+        localStorage.removeItem("questionsShuffled");
+        localStorage.removeItem("answeredCount");
 }
 
 submitBtn.addEventListener("click", function () {

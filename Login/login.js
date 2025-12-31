@@ -86,9 +86,9 @@ function login() {
 
     if (userFound) {
         localStorage.setItem("loginUser", JSON.stringify(loginUserData));
-        localStorage.removeItem("examStarted");
-        localStorage.removeItem("examSubmitted");
-        localStorage.removeItem("examTimeOut");
+        // localStorage.removeItem("examStarted");
+        //  localStorage.removeItem("examSubmitted");
+        //  localStorage.removeItem("examTimeOut");
 
         return true;
     } else {

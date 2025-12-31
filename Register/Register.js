@@ -59,6 +59,17 @@ registerButton.addEventListener("click", function (event) {
         alert("Registration successful!");
         localStorage.setItem("loginUser", JSON.stringify(userData));
         window.location.replace("../Home/homepage.html");
+        localStorage.removeItem("examStarted");
+         localStorage.removeItem("examSubmitted");
+         localStorage.removeItem("examTimeOut");
+
+        //  localStorage.removeItem("savedAnswers");
+        //  localStorage.removeItem("currentQuestion");
+        // localStorage.removeItem("remainingTime");
+        // localStorage.removeItem("markedQuestions");
+        // localStorage.removeItem("examScore");
+        // localStorage.removeItem("userAnswers");
+        // localStorage.removeItem("questionsShuffled");
     }
 });
 
