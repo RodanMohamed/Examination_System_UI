@@ -1,7 +1,17 @@
+(function() {
+    if (localStorage.getItem("examSubmitted") !== "true") {
+        alert("You cannot access the results before submitting the exam!");
+        window.location.replace("/Examination_System_UI/Home/homepage.html");
+        return;
+    }
+
+   // displayResults();
+})();
 var studentData = JSON.parse(localStorage.getItem('loginUser')) || 'Student';
 var studentName = studentData.firstName;
 studentName += " ";
 studentName += studentData.lastName;
+
 
 document.getElementsByClassName('student-name')[0].textContent = studentName;
 var totalScore = studentData.score || '0/0';
