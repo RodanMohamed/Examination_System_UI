@@ -40,7 +40,7 @@
 #prev:hover {
     background-color: rgb(255, 194, 214);
     color: rgb(94, 2, 33);
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 #next {
@@ -50,6 +50,7 @@
 #next:hover {
     background-color: rgb(125, 239, 125);
     color: rgb(94, 2, 33);
+    transform: scale(1.05);
 }
 
 .question-box {
@@ -136,8 +137,9 @@
 }
 
 .submit {
+    display: block;
     width: 70%;
-    margin: 60px;
+    margin: 40px auto;
     padding: 12px;
     font-size: 15px;
     background-color: rgb(94, 2, 33);
@@ -145,12 +147,13 @@
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    transition: all 0.25s ease;
 }
-.submit:hover{
+
+.submit:hover {
     background-color: rgb(34, 197, 94);
     color: rgb(94, 2, 33);
-  
-} 
+}
 
 .footer {
     display: grid;

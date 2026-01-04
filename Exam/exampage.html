@@ -14,27 +14,26 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
 
         <!-- ------------------------------header-------------------------------------------------- -->
-        <div class="p-5 bg-red-300 col-span-1 sm:col-span-2 lg:col-span-6 mb-14 flex justify-between flex-wrap items-center order-first"
+        <div class="p-1 bg-red-300 col-span-1 sm:col-span-2 lg:col-span-6 mb-7 flex justify-between flex-wrap items-center order-first"
             id="header">
             <h1 class="text-2xl">Your Time is started!!!</h1>
 
             <span
-                class="bg-gradient-to-tr from-gray-700 via-green-100 to-red-400 rounded-lg text-black flex p-4 justify-between items-center gap-3">
-                <figure>
-                    <svg class="w-6 h-6" viewBox="0 0 128 128" fill="#ffffff" xmlns="http://www.w3.org/2000/svg">
+                class="bg-gradient-to-tr from-gray-700 via-green-200 to-red-400 rounded-xl text-white flex items-center gap-3 px-4 py-2 w-max shadow-md">
+                <figure class="flex-shrink-0">
+                    <svg class="w-6 h-6" viewBox="0 0 128 128" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <path
-                            d="M120 64C120 33.0721 94.9279 8 64 8C33.0721 8 8 33.0721 8 64C8 94.9279 33.0721 120 64 120V128C28.6538 128 0 99.3462 0 64C0 28.6538 28.6538 0 64 0C99.3462 0 128 28.6538 128 64C128 99.3462 99.3462 128 64 128V120C94.9279 120 120 94.9279 120 64Z"
-                            fill="#ffffff" />
+                            d="M120 64C120 33.0721 94.9279 8 64 8C33.0721 8 8 33.0721 8 64C8 94.9279 33.0721 120 64 120V128C28.6538 128 0 99.3462 0 64C0 28.6538 28.6538 0 64 0C99.3462 0 128 28.6538 128 64C128 99.3462 99.3462 128 64 128V120C94.9279 120 120 94.9279 120 64Z" />
                         <path
-                            d="M58.2764 25.9453C58.2764 23.7362 60.0672 21.9453 62.2764 21.9453C64.4855 21.9453 66.2764 23.7362 66.2764 25.9453V68.6484H105.52L105.726 68.6533C107.839 68.7605 109.52 70.5084 109.52 72.6484C109.519 74.7883 107.839 76.5354 105.726 76.6426L105.52 76.6484H65.2764C61.4105 76.6484 58.2766 73.5142 58.2764 69.6484V25.9453Z"
-                            fill="#ffffff" />
+                            d="M58.2764 25.9453C58.2764 23.7362 60.0672 21.9453 62.2764 21.9453C64.4855 21.9453 66.2764 23.7362 66.2764 25.9453V68.6484H105.52L105.726 68.6533C107.839 68.7605 109.52 70.5084 109.52 72.6484C109.519 74.7883 107.839 76.5354 105.726 76.6426L105.52 76.6484H65.2764C61.4105 76.6484 58.2766 73.5142 58.2764 69.6484V25.9453Z" />
                     </svg>
                 </figure>
-                <span class="countdown font-mono text-2xl">
+                <span class="countdown font-mono text-xl md:text-2xl tracking-wide text-black">
                     <span id="minutes" style="--value:30;">30</span>:
                     <span id="seconds" style="--value:0;">00</span>
                 </span>
             </span>
+
         </div>
 
         <!-- ------------------------------question box-------------------------------------------------- -->
@@ -60,10 +59,22 @@
             <div class="p-5 border border-red-500 rounded-md mt-3 bg-gray-300">
                 <h1 class="py-6 font-bold" id="question-header">Your Question</h1>
                 <form id="questionForm">
-                    <label class="option"><input type="radio" name="q1"><span class="option-text"></span></label>
-                    <label class="option"><input type="radio" name="q1"><span class="option-text"></span></label>
-                    <label class="option"><input type="radio" name="q1"><span class="option-text"></span></label>
-                    <label class="option"><input type="radio" name="q1"><span class="option-text"></span></label>
+                    <label class="option flex items-center gap-3">
+                        <input type="radio" name="q1" class="w-6 h-6 accent-red-900">
+                        <span class="option-text text-lg">Option Text</span>
+                    </label>
+                    <label class="option flex items-center gap-3">
+                        <input type="radio" name="q1" class="w-6 h-6 accent-red-900">
+                        <span class="option-text text-lg">Option Text</span>
+                    </label>
+                    <label class="option flex items-center gap-3">
+                        <input type="radio" name="q1" class="w-6 h-6 accent-red-900">
+                        <span class="option-text text-lg">Option Text</span>
+                    </label>
+                    <label class="option flex items-center gap-3">
+                        <input type="radio" name="q1" class="w-6 h-6 accent-red-900">
+                        <span class="option-text text-lg">Option Text</span>
+                    </label>
                 </form>
             </div>
         </div>
@@ -71,18 +82,28 @@
         <!-- ------------------------------question palette-------------------------------------------------- -->
         <div class="p-2 bg-yellow-200 col-span-1 sm:col-span-2 lg:col-span-2 m-2 rounded-md ml-10 mr-12 order-3 lg:order-none"
             id="question-pallete">
-            <input type="range" min="0" max="100" value="0"
-                class="range text-blue-500 [--range-bg:gray] [--range-thumb:white] [--range-fill:1]" />
-            <h4 class="text-center text-xl text-red-950 mb-3">Question Palette</h4>
 
-            <div class="flex flex-wrap justify-center mb-10">
-                <div class="text-black text-sm mr-2"><label
-                        class="checkbox checkbox-secondary bg-blue-600 w-3 h-3 rounded-none mr-1"></label>Current</div>
-                <div class="text-black text-sm mr-2"><label
-                        class="checkbox checkbox-secondary bg-green-300 w-3 h-3 rounded-none mr-1"></label>Answered
+            <h6 class="text-sm text-red-950 mb-2">Time Progress</h6>
+            <input type="range" min="0" max="100" value="0"
+                class="range w-full text-red-900 [--range-bg:gray] [--range-thumb:white] [--range-fill:linear-gradient(to right, #f87171, #34d399)]" />
+            <br><br>
+            <h4 class="text-center text-xl text-red-950 mb-3">Question Palette</h4>
+            <div class="flex flex-wrap justify-center gap-4 mb-10">
+                <div class="flex items-center gap-2">
+                    <span
+                        class="w-5 h-5 rounded-full bg-blue-600 shadow-md flex-shrink-0 hover:scale-110 transition-transform"></span>
+                    <span class="text-black text-sm font-medium">Current</span>
                 </div>
-                <div class="text-black text-sm"><label
-                        class="checkbox checkbox-secondary bg-yellow-300 w-3 h-3 rounded-none mr-1"></label>Marked</div>
+                <div class="flex items-center gap-2">
+                    <span
+                        class="w-5 h-5 rounded-full bg-green-400 shadow-md flex-shrink-0 hover:scale-110 transition-transform"></span>
+                    <span class="text-black text-sm font-medium">Answered</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span
+                        class="w-5 h-5 rounded-full bg-yellow-400 shadow-md flex-shrink-0 hover:scale-110 transition-transform"></span>
+                    <span class="text-black text-sm font-medium">Marked</span>
+                </div>
             </div>
 
             <div class="grid-palette">

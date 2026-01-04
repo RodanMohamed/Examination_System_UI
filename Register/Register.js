@@ -4,6 +4,7 @@ var email = document.getElementById("email");
 var password = document.getElementById("password");
 var confirmPassword = document.getElementById("confirm-password");
 var registerButton = document.getElementById("register-button");
+var nameRegex = /^[A-Za-z\s]+$/;
 
 registerButton.addEventListener("click", function (event) {
     event.preventDefault();
@@ -13,11 +14,25 @@ registerButton.addEventListener("click", function (event) {
     if (firstName.value.trim() === "") {
         showError("first-name-error", "First name is required.");
         isValid = false;
+    } else if (firstName.value.trim().length < 3) {
+        showError("first-name-error", "First name must be at least 3 characters.");
+        isValid = false;
+    } else if (!nameRegex.test(firstName.value.trim())) {
+        showError("first-name-error", "First name must contain letters only.");
+        isValid = false;
     }
+
     if (lastName.value.trim() === "") {
         showError("last-name-error", "Last name is required.");
         isValid = false;
+    } else if (lastName.value.trim().length < 3) {
+        showError("last-name-error", "Last name must be at least 3 characters.");
+        isValid = false;
+    } else if (!nameRegex.test(lastName.value.trim())) {
+        showError("last-name-error", "Last name must contain letters only.");
+        isValid = false;
     }
+
     if (email.value.trim() === "") {
         showError("email-error", "Email is required.");
         isValid = false;
@@ -25,6 +40,7 @@ registerButton.addEventListener("click", function (event) {
         showError("email-error", "Invalid email format.");
         isValid = false;
     }
+
     if (password.value.trim() === "") {
         showError("password-error", "Password is required.");
         isValid = false;
@@ -32,6 +48,7 @@ registerButton.addEventListener("click", function (event) {
         showError("password-error", "Password must be at least 8 characters.");
         isValid = false;
     }
+
     if (confirmPassword.value.trim() === "") {
         showError("confirm-password-error", "Confirm password is required.");
         isValid = false;
@@ -39,6 +56,7 @@ registerButton.addEventListener("click", function (event) {
         showError("confirm-password-error", "Passwords do not match.");
         isValid = false;
     }
+
     if (isValid) {
         var userData = {
             firstName: firstName.value.trim(),
@@ -59,13 +77,13 @@ registerButton.addEventListener("click", function (event) {
         alert("Registration successful!");
         localStorage.setItem("loginUser", JSON.stringify(userData));
         window.location.replace("../Home/homepage.html");
-         localStorage.removeItem("examStarted");
-         localStorage.removeItem("examSubmitted");
-         localStorage.removeItem("examTimeOut");
-         localStorage.removeItem("remainingTime");
+        localStorage.removeItem("examStarted");
+        localStorage.removeItem("examSubmitted");
+        localStorage.removeItem("examTimeOut");
+        localStorage.removeItem("remainingTime");
 
-         localStorage.removeItem("savedAnswers");
-         localStorage.removeItem("currentQuestion");
+        localStorage.removeItem("savedAnswers");
+        localStorage.removeItem("currentQuestion");
         localStorage.removeItem("remainingTime");
         localStorage.removeItem("markedQuestions");
         localStorage.removeItem("examScore");
