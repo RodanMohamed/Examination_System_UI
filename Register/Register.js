@@ -64,13 +64,13 @@ registerButton.addEventListener("click", function (event) {
          localStorage.removeItem("examTimeOut");
          localStorage.removeItem("remainingTime");
 
-        //  localStorage.removeItem("savedAnswers");
-        //  localStorage.removeItem("currentQuestion");
-        // localStorage.removeItem("remainingTime");
-        // localStorage.removeItem("markedQuestions");
-        // localStorage.removeItem("examScore");
-        // localStorage.removeItem("userAnswers");
-        // localStorage.removeItem("questionsShuffled");
+         localStorage.removeItem("savedAnswers");
+         localStorage.removeItem("currentQuestion");
+        localStorage.removeItem("remainingTime");
+        localStorage.removeItem("markedQuestions");
+        localStorage.removeItem("examScore");
+        localStorage.removeItem("userAnswers");
+        localStorage.removeItem("questionsShuffled");
     }
 });
 
