@@ -29,7 +29,7 @@
 // ---------------- Restore Exam State ----------------
 
 function saveExamState() {
-        var marked = [];
+    var marked = [];
 
     for (var i = 0; i < gridPalette.length; i++) {
         marked.push(gridPalette[i].dataset.marked === "true");
@@ -189,7 +189,7 @@ nextButton.addEventListener("click", function () {
         saveExamState();
 
         showQuestion();
-        
+
     }
 });
 
@@ -211,7 +211,7 @@ markButton.addEventListener("click", function () {
         this.lastChild.textContent = "Unmark Question";
         this.style.background = "#ffdf20";
     }
-    saveExamState();  
+    saveExamState();
     updatePaletteStatus();
 });
 
@@ -258,7 +258,7 @@ function submitExam(autoSubmit) {
     // localStorage.removeItem("remainingTime");
     // localStorage.removeItem("examStarted");
     // localStorage.removeItem("markedQuestions");
-    
+
 
 
     if (!autoSubmit) {
@@ -266,14 +266,14 @@ function submitExam(autoSubmit) {
     }
 
     window.location.href = "/Examination_System_UI/Result/result.html";
-        // localStorage.removeItem("savedAnswers");
-        //  localStorage.removeItem("currentQuestion");
-        // localStorage.removeItem("remainingTime");
-        // localStorage.removeItem("markedQuestions");
-        // localStorage.removeItem("examScore");
-        // localStorage.removeItem("userAnswers");
-        // localStorage.removeItem("questionsShuffled");
-        // localStorage.removeItem("answeredCount");
+    // localStorage.removeItem("savedAnswers");
+    //  localStorage.removeItem("currentQuestion");
+    // localStorage.removeItem("remainingTime");
+    // localStorage.removeItem("markedQuestions");
+    // localStorage.removeItem("examScore");
+    // localStorage.removeItem("userAnswers");
+    // localStorage.removeItem("questionsShuffled");
+    // localStorage.removeItem("answeredCount");
 }
 
 submitBtn.addEventListener("click", function () {
@@ -304,32 +304,32 @@ window.addEventListener("DOMContentLoaded", function () {
 
     var timer = setInterval(function () {
 
-    var minutes = Math.floor(remainingTime / 60);
-    var seconds = remainingTime % 60;
+        var minutes = Math.floor(remainingTime / 60);
+        var seconds = remainingTime % 60;
 
-    minutesEl.style.setProperty("--value", minutes);
-    secondsEl.style.setProperty("--value", seconds);
+        minutesEl.style.setProperty("--value", minutes);
+        secondsEl.style.setProperty("--value", seconds);
 
-    var usedTime = TOTAL_TIME - remainingTime;
-    var progressPercent = Math.floor((usedTime / TOTAL_TIME) * 100);
-    rangeEl.value = progressPercent;
+        var usedTime = TOTAL_TIME - remainingTime;
+        var progressPercent = Math.floor((usedTime / TOTAL_TIME) * 100);
+        rangeEl.value = progressPercent;
 
-    if (remainingTime <= 0) {
-        clearInterval(timer);
+        if (remainingTime <= 0) {
+            clearInterval(timer);
 
-        localStorage.setItem("examTimeOut", "true");
-        localStorage.removeItem("examStarted");
+            localStorage.setItem("examTimeOut", "true");
+            localStorage.removeItem("examStarted");
 
-        submitExam(true);
-        window.location.replace("../TimeOut/timeout.html");
-        return;
-    }
+            submitExam(true);
+            window.location.replace("../TimeOut/timeout.html");
+            return;
+        }
 
-    remainingTime--;
+        remainingTime--;
 
-    //SAVE TIME EVERY SECOND
-    localStorage.setItem("remainingTime", remainingTime);
+        //SAVE TIME EVERY SECOND
+        localStorage.setItem("remainingTime", remainingTime);
 
-}, 1000);
+    }, 1000);
 
 });
