@@ -303,53 +303,59 @@ submitBtn.addEventListener("click", function () {
         }
     }
     submitExam();
-    TOTAL_TIME = 30 * 60;
+    TOTAL_TIME = 1 * 60;
 });
 
 // ---------------- Countdown -----------------
-window.addEventListener("DOMContentLoaded", function () {
-    var minutesEl = document.getElementById("minutes");
-    var secondsEl = document.getElementById("seconds");
-    var rangeEl = document.querySelector("input[type='range']");
+let remainingTime;
+const TOTAL_TIME = 1 * 60;
 
-    var TOTAL_TIME = 30 * 60;
+window.addEventListener("DOMContentLoaded", () => {
+    const minutesEl = document.getElementById("minutes");
+    const secondsEl = document.getElementById("seconds");
+    const progressFill = document.getElementById("progressFill");
+    const progressText = document.getElementById("progressText");
+    const timeLeftText = document.getElementById("timeLeftText");
+
     remainingTime = localStorage.getItem("remainingTime");
+    remainingTime = remainingTime ? parseInt(remainingTime, 10) : TOTAL_TIME;
 
-    if (remainingTime === null) {
-        remainingTime = TOTAL_TIME;
-    } else {
-        remainingTime = parseInt(remainingTime, 10);
-    }
+    const timer = setInterval(() => {
+        const minutes = Math.floor(remainingTime / 60);
+        const seconds = remainingTime % 60;
 
-
-    var timer = setInterval(function () {
-
-        var minutes = Math.floor(remainingTime / 60);
-        var seconds = remainingTime % 60;
-
+        // تحديث DaisyUI countdown
         minutesEl.style.setProperty("--value", minutes);
         secondsEl.style.setProperty("--value", seconds);
 
-        var usedTime = TOTAL_TIME - remainingTime;
-        var progressPercent = Math.floor((usedTime / TOTAL_TIME) * 100);
-        rangeEl.value = progressPercent;
+        // تحديث البروجرس بار
+        const progressPercent = ((TOTAL_TIME - remainingTime) / TOTAL_TIME) * 100;
+        if (progressFill) progressFill.style.width =` ${progressPercent}%`;
+
+        const timeLeftPercent = (remainingTime / TOTAL_TIME) * 100;
+        if (progressText) progressText.textContent =` ${Math.round(timeLeftPercent)}%`;
+        if (timeLeftText) timeLeftText.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds} remaining`;
+
+        // تغيير اللون حسب الوقت
+        if (progressFill) {
+            if (timeLeftPercent > 50) {
+                progressFill.className = "h-full transition-all duration-1000 ease-linear rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg bg-gradient-to-r from-green-500 to-emerald-600";
+            } else if (timeLeftPercent > 20) {
+                progressFill.className = "h-full transition-all duration-1000 ease-linear rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg bg-gradient-to-r from-amber-500 to-orange-600";
+            } else {
+                progressFill.className = "h-full transition-all duration-1000 ease-linear rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg bg-gradient-to-r from-red-500 to-rose-600 animate-pulse";
+            }
+        }
 
         if (remainingTime <= 0) {
             clearInterval(timer);
-
             localStorage.setItem("examTimeOut", "true");
-            localStorage.removeItem("examStarted");
-
             submitExam(true);
             window.location.replace("../TimeOut/timeout.html");
             return;
         }
 
         remainingTime--;
-
-        //SAVE TIME EVERY SECOND
         localStorage.setItem("remainingTime", remainingTime);
-
     }, 1000);
-
 });

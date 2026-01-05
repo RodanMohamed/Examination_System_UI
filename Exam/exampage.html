@@ -83,9 +83,16 @@
         <div class="p-2 bg-yellow-200 col-span-1 sm:col-span-2 lg:col-span-2 m-2 rounded-md ml-10 mr-12 order-3 lg:order-none"
             id="question-pallete">
 
-            <h6 class="text-sm text-red-950 mb-2">Time Progress</h6>
-            <input type="range" min="0" max="100" value="0"
-                class="range w-full text-red-900 [--range-bg:gray] [--range-thumb:white] [--range-fill:linear-gradient(to right, #f87171, #34d399)]" />
+            <h6 class="text-sm text-red-950 mb-2 font-bold">Time Progress</h6>
+            <div class="w-full bg-gray-200 rounded-full h-8 relative overflow-hidden shadow-inner">
+                <div id="progressFill"
+                    class="h-full w-0 transition-all duration-1000 ease-linear rounded-full flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                    <span id="progressText">100%</span>
+                </div>
+            </div>
+            <div class="text-center mt-3 text-sm text-gray-700">
+                <span id="timeLeftText">30:00 remaining</span>
+            </div>
             <br><br>
             <h4 class="text-center text-xl text-red-950 mb-3">Question Palette</h4>
             <div class="flex flex-wrap justify-center gap-4 mb-10">
