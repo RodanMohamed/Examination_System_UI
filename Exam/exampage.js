@@ -21,7 +21,11 @@
         return;
     }
 
-    localStorage.setItem("examStarted", "true");
+    //localStorage.setItem("examStarted", "true");
+    if (!localStorage.getItem("examStartTime")) {
+    localStorage.setItem("examStartTime", Date.now());
+}
+
 
 })();
 
@@ -319,6 +323,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
     remainingTime = localStorage.getItem("remainingTime");
     remainingTime = remainingTime ? parseInt(remainingTime, 10) : TOTAL_TIME;
+    
+    const startTime = parseInt(localStorage.getItem("examStartTime"), 10);
+const elapsedSeconds = Math.floor((Date.now() - startTime) / 1000);
+
+remainingTime = TOTAL_TIME - elapsedSeconds;
+if (remainingTime < 0) remainingTime = 0;
+
 
     const timer = setInterval(() => {
         const minutes = Math.floor(remainingTime / 60);
@@ -358,4 +369,5 @@ window.addEventListener("DOMContentLoaded", () => {
         remainingTime--;
         localStorage.setItem("remainingTime", remainingTime);
     }, 1000);
+    
 });
