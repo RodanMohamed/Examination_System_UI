@@ -110,11 +110,31 @@ function shuffleQuestions(questions, answersArr) {
         answersArr[j] = tempA;
     }
 }
+var storedQuestions = localStorage.getItem("shuffledQuestions");
+var storedCorrectAnswers = localStorage.getItem("shuffledCorrectAnswers");
 
-if (!localStorage.getItem("questionsShuffled")) {
+if (storedQuestions && storedCorrectAnswers) {
+    // restore same order after refresh
+    questionObject = JSON.parse(storedQuestions);
+    correctAnswers = JSON.parse(storedCorrectAnswers);
+} else {
+    // first time only
     shuffleQuestions(questionObject, correctAnswers);
-    localStorage.setItem("questionsShuffled", "true");
+
+    localStorage.setItem(
+        "shuffledQuestions",
+        JSON.stringify(questionObject)
+    );
+    localStorage.setItem(
+        "shuffledCorrectAnswers",
+        JSON.stringify(correctAnswers)
+    );
 }
+
+// if (!localStorage.getItem("questionsShuffled")) {
+//     shuffleQuestions(questionObject, correctAnswers);
+//     localStorage.setItem("questionsShuffled", "true");
+// }
 
 showQuestion();
 updatePaletteStatus();
