@@ -70,7 +70,7 @@ function login() {
 
     var userFound = false;
 
-    var loginUserData
+    var loginUserData;
     for (var i = 0; i < users.length; i++) {
         if (users[i].email === email && users[i].password === password) {
             userFound = true;

@@ -19,23 +19,24 @@ logoutBtns.forEach(btn => {
 });
 
 
-const startExamBtn = document.querySelector("#startExamBtn");
+const startExamBtn = document.querySelectorAll(".startExamBtn");
 const startExamError = document.querySelector("#startExamError");
 
-if (startExamBtn) {
-    startExamBtn.addEventListener("click", () => {
-        const currentUser = JSON.parse(localStorage.getItem("loginUser"));
+startExamBtn.forEach(startbtn => {
+    if (startbtn) {
+        startbtn.addEventListener("click", () => {
+            const currentUser = JSON.parse(localStorage.getItem("loginUser"));
 
-        if (currentUser) {
-            startExamError.textContent = "";
-            window.location.href = "/Examination_System_UI/Exam/exampage.html";
-        } else {
-            startExamError.textContent =
-                "Error: You must log in before starting the exam!";
-        }
-        
-    });
-}
+            if (currentUser) {
+                window.location.href = "/Examination_System_UI/Exam/exampage.html";
+            } else {
+                alert("You must log in before starting the exam!");
+                window.location.href = "/Examination_System_UI/Login/login.html";
+            }
+
+        });
+    }
+})
 
 
 /*-------------------------Counters-----------------------------*/

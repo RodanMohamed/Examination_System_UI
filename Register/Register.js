@@ -118,3 +118,15 @@ window.addEventListener("click", function (event) {
     }
 });
 
+
+var inputs = document.querySelectorAll("input");
+
+inputs.forEach(function (input) {
+    input.addEventListener("input", function () {
+        var errorSpan = document.getElementById(input.id + "-error");
+        if (errorSpan) {
+            errorSpan.textContent = "";
+        }
+    });
+});
+
