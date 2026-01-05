@@ -6,7 +6,7 @@
         localStorage.getItem("examTimeOut") === "true"
     ) {
         alert("You have already finished this exam.");
-        window.location.replace("/Examination_System_UI/Login/login.html");
+        window.location.replace("/Examination_System_UI/Result/Result.html");
         return;
     }
 
@@ -17,7 +17,7 @@
 
     if (examStarted === "true" && !hasSavedState) {
         alert("You cannot re-enter the exam.");
-        window.location.replace("/Examination_System_UI/Login/login.html");
+        window.location.replace("/Examination_System_UI/Result/Result.html");
         return;
     }
 
